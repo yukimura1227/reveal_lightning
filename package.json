@@ -1,0 +1,29 @@
+{
+  "name": "drive_in_reveal",
+  "version": "0.0.1",
+  "description": "quick and simple tool for presentation contents",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yukimura1227/drive_in_reveal.git"
+  },
+  "keywords": [
+    "reveal.js",
+    "presentation",
+    "markdown",
+    "electron",
+    "editor"
+  ],
+  "author": "yukimura1227",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yukimura1227/drive_in_reveal/issues"
+  },
+  "homepage": "https://github.com/yukimura1227/drive_in_reveal#readme",
+  "dependencies": {
+    "electron": "^1.7.10"
+  }
+}
