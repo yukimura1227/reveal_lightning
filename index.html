@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Prezentaion powered by reveal.js</title>
+
+    <link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="node_modules/reveal.js/css/theme/sky.css">
+    <!--
+      <link rel="stylesheet" href="css/theme/black.css">
+      <link rel="stylesheet" href="css/theme/league.css">
+    -->
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+
+    <!-- custom style -->
+    <link rel="stylesheet" href="lib/css/custom.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'node_modules/reveal.js/css/print/pdf.css' : 'node_modules/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <pre style="display:none"><code></code></pre>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          id = 'js-markdown-section'
+          data-separator="\n----------\n$"
+          data-separator-vertical="\n---\n$"
+        >
+        </section>
+        <script src='lib/js/custom.js'>
+        </script>
+      </div>
+    </div>
+
+    <script src="node_modules/reveal.js/lib/js/head.min.js"></script>
+    <script src="node_modules/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        math: {
+          mathjax: 'node_modules/mathjax/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+        dependencies: [
+          { src: 'node_modules/reveal.js/plugin/markdown/marked.js' },
+          { src: 'node_modules/reveal.js/plugin/markdown/markdown.js' },
+          { src: 'node_modules/reveal.js/plugin/notes/notes.js', async: true },
+          { src: 'node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'node_modules/reveal.js/plugin/math/math.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
