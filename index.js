@@ -3,6 +3,8 @@ const electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const NodeStatic = require('node-static');
+const path = require('path')
+const url  = require('url')
 let mainWindow;
 
 var file = new NodeStatic.Server(__dirname + '/');
@@ -15,14 +17,15 @@ require('http').createServer(function (request, response) {
 
 
 app.on('window-all-closed', () => app.quit());
-app.on('ready', () => {
-  mainWindow = new BrowserWindow({
-    width: 960,
-    height: 600
-  });
+app.on('activate', () => {
+  mainWindow = new BrowserWindow({width: 960, height: 600});
 
   //ローカルで立てたサーバーにアクセス
-  mainWindow.loadURL('http://localhost:8000/index.html');
+  mainWindow.loadURL(url.format({
+    pathname: path.join('localhost:8000', 'index.html'),
+    protocol: 'http:',
+    slashes: true
+  }));
   mainWindow.webContents.openDevTools()
 
   // ウィンドウが閉じられたらアプリも終了

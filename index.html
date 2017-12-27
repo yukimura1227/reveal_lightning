@@ -6,15 +6,31 @@
 
     <title>drive in reveal</title>
 
+    <link rel = "stylesheet" href = "node_modules/bootstrap/dist/css/bootstrap.min.css" />
+
     <style type="text/css">
       <!--
       .fill-height{ height: 100%; }
+      .half-height{ height: 50%; }
       .fill-width{ width: 100%; }
       -->
     </style>
 
   </head>
   <body class="fill-height">
-    <iframe src="reveal_view.html" class="fill-height fill-width"></iframe>
+    <div class="container fill-height">
+      <div class="row half-height">
+        <div class="col-xs-6 half-height">
+          <textarea id='js-markdown-input' class ='fill-height fill-width'></textarea>
+        </div>
+        <div class="col-xs-6 half-height">
+          <div id="js-markdown-result"></div>
+        </div>
+      <div>
+      <div class="row half-height">
+        <iframe src="reveal_view.html" class="fill-height fill-width"></iframe>
+      <div>
+    </div>
+    <script src="convert.js" ></script>
   </body>
 </html>
