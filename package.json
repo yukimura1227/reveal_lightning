@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/yukimura1227/drive_in_reveal#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "electron": "^1.7.10",
     "jquery": "^3.2.1",
     "marked": "^0.3.9",
