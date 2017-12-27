@@ -25,6 +25,7 @@
   "homepage": "https://github.com/yukimura1227/drive_in_reveal#readme",
   "dependencies": {
     "electron": "^1.7.10",
+    "mathjax": "^2.7.2",
     "reveal.js": "github:hakimel/reveal.js#master"
   }
 }
