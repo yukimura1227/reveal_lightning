@@ -5,5 +5,14 @@
   height: 50%;
 }
 .fill-width {
-width: 100%;
+  width: 100%;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+}
+
+.with-overflow {
+  overflow: auto;
 }
