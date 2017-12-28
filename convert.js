@@ -33,8 +33,7 @@ $('#js-image-paste-btn').on('click', function() {
   // すぐにappendするとファイルが読み込めないので、waitしてからappend
   setTimeout(
     function () {
-      var input_area = $('#js-markdown-input');
-      input_area.val(input_area.val() + "![](" + image_file_name + ")\n");
+      editor.session.insert(editor.getCursorPosition(), "![](" + image_file_name + ")\n");
       $('#js-markdown-input').trigger('change');
     },
     500
