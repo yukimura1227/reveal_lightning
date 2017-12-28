@@ -1,5 +1,5 @@
 {
-  "name": "drive_in_reveal",
+  "name": "reveal_lightning",
   "version": "0.0.1",
   "description": "quick and simple tool for presentation contents",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yukimura1227/drive_in_reveal.git"
+    "url": "git+https://github.com/yukimura1227/reveal_lightning.git"
   },
   "keywords": [
     "reveal.js",
@@ -20,9 +20,9 @@
   "author": "yukimura1227",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yukimura1227/drive_in_reveal/issues"
+    "url": "https://github.com/yukimura1227/reveal_lightning/issues"
   },
-  "homepage": "https://github.com/yukimura1227/drive_in_reveal#readme",
+  "homepage": "https://github.com/yukimura1227/reveal_lightning#readme",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "electron": "^1.7.10",
