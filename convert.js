@@ -1,10 +1,10 @@
-let $ = require('jquery');  // jQuery now loaded and assigned to $// enable everything
-var marked = require('marked');
-let fs = require('fs');
+const $ = require('jquery');  // jQuery now loaded and assigned to $// enable everything
+const marked = require('marked');
+const fs = require('fs');
 
 $('#js-markdown-input').on('change', function() {
-  var input_markdown = $('#js-markdown-input').val();
-  var result_html = marked(input_markdown);
+  let input_markdown = $('#js-markdown-input').val();
+  let result_html = marked(input_markdown);
   $('#js-markdown-result').html(result_html);
 
   write_file('sample.md')
