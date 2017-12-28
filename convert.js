@@ -16,6 +16,7 @@ function compile_and_display_markdown() {
 
 function initialize_load() {
   read_file(target_md_file);
+  compile_and_display_markdown();
 }
 
 function read_file(target_filepath) {
