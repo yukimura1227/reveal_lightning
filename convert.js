@@ -6,3 +6,11 @@ $('#js-markdown-input').on('change', function() {
   var result_html = marked(input_markdown);
   $('#js-markdown-result').html(result_html);
 });
+
+let fs = require('fs');
+function initialize_load() {
+  let data = fs.readFileSync('sample.md', 'utf8');
+  $('#js-markdown-input').val(data);
+}
+
+initialize_load();
