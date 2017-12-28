@@ -22,8 +22,8 @@ app.on('activate', () => {
 
   //ローカルで立てたサーバーにアクセス
   mainWindow.loadURL(url.format({
-    pathname: path.join('localhost:8000', 'index.html'),
-    protocol: 'http:',
+    pathname: path.join(__dirname, '/index.html'),
+    protocol: 'file:',
     slashes: true
   }));
   mainWindow.webContents.openDevTools()
