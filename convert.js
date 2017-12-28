@@ -4,13 +4,15 @@ const fs = require('fs');
 const target_md_file = 'sample.md';
 
 $('#js-markdown-input').on('change', function() {
+  compile_and_display_markdown();
+  write_file(target_md_file);
+});
+
+function compile_and_display_markdown() {
   let input_markdown = $('#js-markdown-input').val();
   let result_html = marked(input_markdown);
   $('#js-markdown-result').html(result_html);
-
-  write_file(target_md_file)
-
-});
+}
 
 function initialize_load() {
   read_file(target_md_file);
