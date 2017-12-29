@@ -58,5 +58,5 @@ function read_file(target_filepath) {
 }
 
 function write_file(target_filepath) {
-  fs.writeFile(target_filepath, editor.getValue());
+  fs.writeFile(target_filepath, editor.getValue(), function (error) {});
 }
