@@ -71,3 +71,6 @@ Session.vim
 *~
 # Auto-generated tag files
 tags
+
+distribution/reveal_lightning*
+
