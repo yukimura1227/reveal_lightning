@@ -51,6 +51,10 @@ $('#js-open-browser-btn').on('click', function() {
   shell.openExternal(presentation_url);
 });
 
+$('#js-reload-reveal-view-btn').on('click', function() {
+  $('#js-reveal-view')[0].contentDocument.location.reload(true);
+});
+
 function compile_and_display_markdown() {
   let input_markdown = editor.getValue();
   let result_html = marked(input_markdown);
