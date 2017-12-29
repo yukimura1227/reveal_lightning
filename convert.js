@@ -39,6 +39,10 @@ $('#js-section-separate-btn').on('click', function() {
   put2editor("\n---\n");
 });
 
+$('#js-open-browser-btn').on('click', function() {
+  shell.openExternal(presentation_url);
+});
+
 function compile_and_display_markdown() {
   let input_markdown = editor.getValue();
   let result_html = marked(input_markdown);
