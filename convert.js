@@ -1,12 +1,3 @@
-const $ = require('jquery');  // jQuery now loaded and assigned to $// enable everything
-const marked = require('marked');
-const fs = require('fs');
-const target_md_file = 'sample.md';
-const clipboard = require('electron').clipboard
-
-require('ace-min-noconflict');
-require('ace-min-noconflict/mode-markdown');
-
 var editor;
 window.addEventListener('DOMContentLoaded',function() {
   editor = ace.edit("js-markdown-input");
@@ -33,13 +24,20 @@ $('#js-image-paste-btn').on('click', function() {
   // すぐにappendするとファイルが読み込めないので、waitしてからappend
   setTimeout(
     function () {
-      editor.session.insert(editor.getCursorPosition(), "![](" + image_file_name + ")\n");
+      put2editor("![](" + image_file_name + ")\n");
       $('#js-markdown-input').trigger('change');
     },
     500
   );
 });
 
+$('#js-chapter-separate-btn').on('click', function() {
+  put2editor("\n----------\n");
+});
+
+$('#js-section-separate-btn').on('click', function() {
+  put2editor("\n---\n");
+});
 
 function compile_and_display_markdown() {
   let input_markdown = editor.getValue();
@@ -52,11 +50,3 @@ function initialize_load() {
   compile_and_display_markdown();
 }
 
-function read_file(target_filepath) {
-  let data = fs.readFileSync(target_filepath, 'utf8');
-  editor.setValue(data);
-}
-
-function write_file(target_filepath) {
-  fs.writeFile(target_filepath, editor.getValue(), function (error) {});
-}
