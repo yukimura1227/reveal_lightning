@@ -5,6 +5,7 @@ const BrowserWindow = electron.BrowserWindow;
 const NodeStatic = require('node-static');
 const path = require('path')
 const url  = require('url')
+global.target_port = '8000';
 let mainWindow;
 
 var file = new NodeStatic.Server(__dirname + '/');
@@ -13,7 +14,7 @@ require('http').createServer(function (request, response) {
   request.addListener('end', function () {
     file.serve(request, response);
   }).resume();
-}).listen(8000);//ポートは空いていそうなところで。
+}).listen(global.target_port);//ポートは空いていそうなところで。
 
 
 app.on('window-all-closed', () => app.quit());
