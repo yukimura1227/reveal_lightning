@@ -27,7 +27,7 @@ app.on('activate', () => {
     protocol: 'file:',
     slashes: true
   }));
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools();
 
   // ウィンドウが閉じられたらアプリも終了
   mainWindow.on('closed', () => mainWindow = null );
