@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded',function() {
   }
   editor.getSession().on('change', function() {
     compile_and_display_markdown();
-    write_file(target_md_file);
+    write_file(target_md_filepath);
   });
   initialize_load();
 });
@@ -62,7 +62,7 @@ function compile_and_display_markdown() {
 }
 
 function initialize_load() {
-  read_file(target_md_file);
+  read_file(target_md_filepath);
   compile_and_display_markdown();
 }
 
