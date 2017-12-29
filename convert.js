@@ -1,5 +1,13 @@
 var editor;
 window.addEventListener('DOMContentLoaded',function() {
+  var renderer = new marked.Renderer();
+  renderer.code = function(code, language) {
+    return '<pre><code class="hljs">' + require('highlight.js').highlightAuto(code).value + '</code></pre>';
+  };
+  marked.setOptions({
+    renderer: renderer,
+  });
+
   editor = ace.edit("js-markdown-input");
   editor.getSession().setMode('ace/mode/markdown');
   editor.$blockScrolling = Infinity; // ワーニングに対処
