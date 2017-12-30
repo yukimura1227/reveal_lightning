@@ -64,6 +64,15 @@ Tool buttons give
 Presentation contents result displays here.  
 If you want to reload then you hover the gear icon and click reload button.
 
+## Future functions
+
+- [ ] button for adding useful style(ex. fragment function)
+- [ ] image paste from file.
+- [ ] save and load files as any name.
+- [ ] using mathjax on preview area.
+- [ ] change server listen port anyself.
+- [ ] change theme for reveal.js
+
 ## Contributing
 If you'd like to contribute, please fork the repository and use a feature
 branch. Pull requests are warmly welcome.
