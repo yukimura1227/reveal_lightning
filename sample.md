@@ -12,6 +12,9 @@
 
 ### SUB SUB TITLE
 
+- grow fragment<!-- .element: class="fragment grow" -->
+- shrink fragment<!-- .element: class="fragment shrink" -->
+
 ----------
 
 ## SAMPLES
