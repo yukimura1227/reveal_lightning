@@ -4,6 +4,10 @@
 
 ## SUB TITLE
 
+- list item1<!-- .element: class="fragment" -->
+- list item2<!-- .element: class="fragment" -->
+- list item3<!-- .element: class="fragment" -->
+
 ---
 
 ### SUB SUB TITLE
