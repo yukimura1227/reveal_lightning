@@ -51,6 +51,10 @@ $('#js-open-browser-btn').on('click', function() {
   shell.openExternal(presentation_url);
 });
 
+$('#js-print-btn').on('click', function() {
+  shell.openExternal(print_url);
+});
+
 $('#js-reload-reveal-view-btn').on('click', function() {
   $('#js-reveal-view')[0].contentDocument.location.reload(true);
 });
