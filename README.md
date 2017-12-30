@@ -67,6 +67,8 @@ If you want to reload then you hover the gear icon and click reload button.
 ## Future functions
 
 - [ ] button for adding useful style(ex. fragment function)
+- [ ] right click menu instead of gear icon.
+- [ ] useful keyboard shortcut.
 - [ ] image paste from file.
 - [ ] save and load files as any name.
 - [ ] using mathjax on preview area.
