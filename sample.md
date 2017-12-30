@@ -18,10 +18,13 @@
 - fade down<!-- .element: class="fragment fade-down" -->
 - fade left<!-- .element: class="fragment fade-left" -->
 - fade right<!-- .element: class="fragment fade-right" -->
- 
+
 ----------
 
 ## SAMPLES
+
+- current visible fragment<!-- .element: class="fragment current-visible" -->
+- dummy<!-- .element: class="fragment" -->
 
 ---
 
