@@ -24,7 +24,10 @@
 ## SAMPLES
 
 - current visible fragment<!-- .element: class="fragment current-visible" -->
-- dummy<!-- .element: class="fragment" -->
+- highlight blue once<!-- .element: class="fragment highlight-current-blue" -->
+- highlight blue<!-- .element: class="fragment highlight-blue" -->
+- highlight red<!-- .element: class="fragment highlight-red" -->
+- highlight green<!-- .element: class="fragment highlight-green" -->
 
 ---
 
