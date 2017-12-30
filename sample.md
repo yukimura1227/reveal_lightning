@@ -31,6 +31,12 @@
 
 ---
 
+### Image
+
+![](readme_resource/area_explain.svg)<!-- .element: style="width: 100%" -->
+
+---
+
 ### Code highlight
 ```ruby
 3.times.each do |i|
