@@ -14,7 +14,11 @@
 
 - grow fragment<!-- .element: class="fragment grow" -->
 - shrink fragment<!-- .element: class="fragment shrink" -->
-
+- fade up<!-- .element: class="fragment fade-up" -->
+- fade down<!-- .element: class="fragment fade-down" -->
+- fade left<!-- .element: class="fragment fade-left" -->
+- fade right<!-- .element: class="fragment fade-right" -->
+ 
 ----------
 
 ## SAMPLES
