@@ -38,7 +38,7 @@ https://github.com/yukimura1227/reveal_lightning/releases
 it's start http server on 8000 port. so you can access presentation content on http://localhost:8000/reveal_view.html
 
 ### Appearance
-![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v0.0.1/readme_resource/area_explain.png)
+![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v0.0.2/readme_resource/area_explain.svg)
 
 ### Functions
 #### 1. editor area
@@ -56,6 +56,7 @@ tool is
 - add separator for change section
 - presentation button(open system default browser)
 - reload button for presentation area
+- print button(open system default browser with print-pdf parameter)
 
 #### 4. presentation area
 presentation contents result displays here.
