@@ -26,6 +26,7 @@
   "dependencies": {
     "ace-min-noconflict": "^1.1.9",
     "electron": "^1.7.10",
+    "electron-settings": "^3.1.4",
     "font-awesome": "^4.7.0",
     "highlight.js": "^9.12.0",
     "jquery": "^3.2.1",
