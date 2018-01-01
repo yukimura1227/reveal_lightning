@@ -32,3 +32,10 @@ app.on('activate', () => {
   // ウィンドウが閉じられたらアプリも終了
   mainWindow.on('closed', () => mainWindow = null );
 });
+
+const settings = require('electron-settings');
+app.on('ready', () => {
+  settings.set('target_md', {
+    file_path: __dirname + '/sample.md'
+  });
+});
