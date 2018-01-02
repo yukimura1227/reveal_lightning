@@ -8,9 +8,7 @@ const url  = require('url')
 
 const settings = require('electron-settings');
 app.on('ready', () => {
-  settings.set('target_md', {
-    file_path: __dirname + '/sample.md'
-  });
+  settings.set('target_md', { file_path: __dirname + '/sample.md' });
   settings.set('server', { port: '8000' });// ポートは空いていそうなところで。
 });
 
