@@ -1,7 +1,7 @@
 "use strict";
 const electron = require("electron");
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const {app} = electron;
+const {BrowserWindow} = electron;
 const NodeStatic = require('node-static');
 const path = require('path')
 const url  = require('url')
