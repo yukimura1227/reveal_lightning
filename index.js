@@ -1,11 +1,22 @@
 "use strict";
-const electron = require("electron");
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const electron        = require("electron");
+const {app}           = electron;
+const {BrowserWindow} = electron;
+
 const NodeStatic = require('node-static');
 const path = require('path')
 const url  = require('url')
-global.target_port = '8000';
+
+const settings = require('electron-settings');
+app.on('ready', () => {
+  settings.set('target_md', { file_path: __dirname + '/sample.md' });
+  settings.set('server', { port: '8000' });// ポートは空いていそうなところで。
+  settings.set('url', {
+    presentation: 'http://localhost:' + settings.get('server.port') + '/reveal_view.html',
+    print: settings.get('url.presentation') + '?print-pdf'
+  });// ポートは空いていそうなところで。
+});
+
 let mainWindow;
 
 var file = new NodeStatic.Server(__dirname + '/');
@@ -14,7 +25,7 @@ require('http').createServer(function (request, response) {
   request.addListener('end', function () {
     file.serve(request, response);
   }).resume();
-}).listen(global.target_port);//ポートは空いていそうなところで。
+}).listen(settings.get('server.port'));
 
 
 app.on('window-all-closed', () => app.quit());
