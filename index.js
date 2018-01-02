@@ -6,6 +6,14 @@ const NodeStatic = require('node-static');
 const path = require('path')
 const url  = require('url')
 global.target_port = '8000';
+
+const settings = require('electron-settings');
+app.on('ready', () => {
+  settings.set('target_md', {
+    file_path: __dirname + '/sample.md'
+  });
+});
+
 let mainWindow;
 
 var file = new NodeStatic.Server(__dirname + '/');
@@ -31,11 +39,4 @@ app.on('activate', () => {
 
   // ウィンドウが閉じられたらアプリも終了
   mainWindow.on('closed', () => mainWindow = null );
-});
-
-const settings = require('electron-settings');
-app.on('ready', () => {
-  settings.set('target_md', {
-    file_path: __dirname + '/sample.md'
-  });
 });
