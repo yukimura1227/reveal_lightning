@@ -10,7 +10,9 @@ const url  = require('url')
 const settings = require('electron-settings');
 app.on('ready', () => {
   settings.set('target_md', { file_path: __dirname + '/sample.md' });
-  settings.set('server', { port: '8000' });// ポートは空いていそうなところで。
+  if(!settings.has('server.port')) {
+    settings.set('server', { port: '8000' });// ポートは空いていそうなところで。
+  }
   settings.set('url', {
     presentation: 'http://localhost:' + settings.get('server.port') + '/reveal_view.html',
     print: settings.get('url.presentation') + '?print-pdf'
