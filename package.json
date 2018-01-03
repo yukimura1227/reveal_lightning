@@ -34,7 +34,8 @@
     "mathjax": "^2.7.2",
     "node-static": "^0.7.10",
     "reveal.js": "github:hakimel/reveal.js#master",
-    "uikit": "^3.0.0-beta.35"
+    "uikit": "^3.0.0-beta.35",
+    "vex-js": "^4.0.1"
   },
   "devDependencies": {
     "electron-packager": "^10.1.0"
