@@ -16,3 +16,8 @@ textarea {
 .with-overflow {
   overflow: auto;
 }
+
+.vertical-margin-middle {
+  margin-top: auto;
+  margin-bottom: auto;
+}
