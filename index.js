@@ -12,6 +12,8 @@ const settings = require('electron-settings');
 
 const application_menu = require('./lib/js/application-menu')
 
+global.mainWindow = null;
+
 app.on('ready', () => {
   settings.set('target_md', { file_path: __dirname + '/sample.md' });
   if(!settings.has('server.port')) {
@@ -22,8 +24,6 @@ app.on('ready', () => {
     print: settings.get('url.presentation') + '?print-pdf'
   });
 });
-
-let mainWindow;
 
 var file = new NodeStatic.Server(__dirname + '/');
 
@@ -39,16 +39,16 @@ app.on('activate', () => {
   const menu = Menu.buildFromTemplate(application_menu.menu_template);
   Menu.setApplicationMenu(menu);
 
-  mainWindow = new BrowserWindow({width: 960, height: 600});
+  global.mainWindow = new BrowserWindow({width: 960, height: 600});
 
   //ローカルで立てたサーバーにアクセス
-  mainWindow.loadURL(url.format({
+  global.mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, '/index.html'),
     protocol: 'file:',
     slashes: true
   }));
-  // mainWindow.webContents.openDevTools();
+  // global.mainWindow.webContents.openDevTools();
 
   // ウィンドウが閉じられたらアプリも終了
-  mainWindow.on('closed', () => mainWindow = null );
+  global.mainWindow.on('closed', () => global.mainWindow = null );
 });
