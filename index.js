@@ -36,7 +36,7 @@ require('http').createServer(function (request, response) {
 
 app.on('window-all-closed', () => app.quit());
 app.on('activate', () => {
-  const menu = Menu.buildFromTemplate(application_menu.menu_template());
+  const menu = Menu.buildFromTemplate(application_menu.menu_template);
   Menu.setApplicationMenu(menu);
 
   mainWindow = new BrowserWindow({width: 960, height: 600});
