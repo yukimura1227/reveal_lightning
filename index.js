@@ -10,66 +10,7 @@ const url  = require('url')
 
 const settings = require('electron-settings');
 
-const menu_template = [
-  {
-    label: 'Edit',
-    submenu: [
-      {
-        label: 'redo',
-        accelerator: 'Shift+CmdOrCtrl+Z',
-        role: 'redo'
-      },
-      {
-        type: 'separator'
-      },
-      {
-        label: 'copy',
-        accelerator: 'CmdOrCtrl+C',
-        role: 'copy'
-      }
-    ]
-  },
-  {
-    label: 'View',
-    submenu: [
-      {
-        label: 'toggle full screen',
-        accelerator: (function() {
-          if (process.platform === 'darwin') {
-            return 'Ctrl+Command+F'
-          } else {
-            return 'F11'
-          }
-        })(),
-        click: function(item, focusedWindow) {
-          if (focusedWindow) {
-            focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
-          }
-        }
-      }
-    ]
-  }
-];
-
-if (process.platform === 'darwin') {
-  const name = electron.app.getName()
-  menu_template.unshift({
-    label: name,
-    submenu: [
-      {
-        label: `About ${name}`,
-        role: 'about'
-      },
-      {
-        label: 'Quit',
-        accelerator: 'Command+Q',
-        click: function() {
-          app.quit()
-        }
-      }
-    ]
-  });
-}
+const application_menu = require('./lib/js/application-menu')
 
 app.on('ready', () => {
   settings.set('target_md', { file_path: __dirname + '/sample.md' });
@@ -95,8 +36,8 @@ require('http').createServer(function (request, response) {
 
 app.on('window-all-closed', () => app.quit());
 app.on('activate', () => {
-  const menu = Menu.buildFromTemplate(menu_template)
-  Menu.setApplicationMenu(menu)
+  const menu = Menu.buildFromTemplate(application_menu.menu_template());
+  Menu.setApplicationMenu(menu);
 
   mainWindow = new BrowserWindow({width: 960, height: 600});
 
