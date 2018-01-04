@@ -2,12 +2,75 @@
 const electron        = require("electron");
 const {app}           = electron;
 const {BrowserWindow} = electron;
+const {Menu}          = electron;
 
 const NodeStatic = require('node-static');
 const path = require('path')
 const url  = require('url')
 
 const settings = require('electron-settings');
+
+const menu_template = [
+  {
+    label: 'Edit',
+    submenu: [
+      {
+        label: 'redo',
+        accelerator: 'Shift+CmdOrCtrl+Z',
+        role: 'redo'
+      },
+      {
+        type: 'separator'
+      },
+      {
+        label: 'copy',
+        accelerator: 'CmdOrCtrl+C',
+        role: 'copy'
+      }
+    ]
+  },
+  {
+    label: 'View',
+    submenu: [
+      {
+        label: 'toggle full screen',
+        accelerator: (function() {
+          if (process.platform === 'darwin') {
+            return 'Ctrl+Command+F'
+          } else {
+            return 'F11'
+          }
+        })(),
+        click: function(item, focusedWindow) {
+          if (focusedWindow) {
+            focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
+          }
+        }
+      }
+    ]
+  }
+];
+
+if (process.platform === 'darwin') {
+  const name = electron.app.getName()
+  menu_template.unshift({
+    label: name,
+    submenu: [
+      {
+        label: `About ${name}`,
+        role: 'about'
+      },
+      {
+        label: 'Quit',
+        accelerator: 'Command+Q',
+        click: function() {
+          app.quit()
+        }
+      }
+    ]
+  });
+}
+
 app.on('ready', () => {
   settings.set('target_md', { file_path: __dirname + '/sample.md' });
   if(!settings.has('server.port')) {
@@ -32,6 +95,9 @@ require('http').createServer(function (request, response) {
 
 app.on('window-all-closed', () => app.quit());
 app.on('activate', () => {
+  const menu = Menu.buildFromTemplate(menu_template)
+  Menu.setApplicationMenu(menu)
+
   mainWindow = new BrowserWindow({width: 960, height: 600});
 
   //ローカルで立てたサーバーにアクセス
