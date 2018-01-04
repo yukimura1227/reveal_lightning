@@ -15,12 +15,12 @@ const application_menu = require('./lib/js/application-menu')
 app.on('ready', () => {
   settings.set('target_md', { file_path: __dirname + '/sample.md' });
   if(!settings.has('server.port')) {
-    settings.set('server', { port: '8000' });// ポートは空いていそうなところで。
+    settings.set('server', { port: '8000' });
   }
   settings.set('url', {
     presentation: 'http://localhost:' + settings.get('server.port') + '/reveal_view.html',
     print: settings.get('url.presentation') + '?print-pdf'
-  });// ポートは空いていそうなところで。
+  });
 });
 
 let mainWindow;
