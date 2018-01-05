@@ -3,10 +3,12 @@ const electron        = require("electron");
 const {app}           = electron;
 const {BrowserWindow} = electron;
 const {Menu}          = electron;
+const {ipcMain}       = electron;
 
 const NodeStatic = require('node-static');
 const path = require('path')
 const url  = require('url')
+const http = require('http');
 
 const settings = require('electron-settings');
 
@@ -23,16 +25,29 @@ app.on('ready', () => {
     presentation: 'http://localhost:' + settings.get('server.port') + '/reveal_view.html',
     print: settings.get('url.presentation') + '?print-pdf'
   });
+  start_server(settings.get('server.port'));
 });
 
 var file = new NodeStatic.Server(__dirname + '/');
 
-require('http').createServer(function (request, response) {
-  request.addListener('end', function () {
-    file.serve(request, response);
-  }).resume();
-}).listen(settings.get('server.port'));
+function start_server(target_port) {
+  if( global.http_server != undefined && global.http_server != null) {
+    global.http_server.close( function() {
+      console.log('server is closed!!');
+    });
+  }
+  global.http_server = http.createServer(function (request, response) {
+    request.addListener('end', function () {
+      file.serve(request, response);
+    }).resume();
+  });
+  global.http_server.listen(target_port);
+}
 
+ipcMain.on('start-server', (event, arg) => {
+  start_server(settings.get('server.port'));
+  event.sender.send('start-server-reply');
+});
 
 app.on('window-all-closed', () => app.quit());
 app.on('activate', () => {
