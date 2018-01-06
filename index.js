@@ -12,7 +12,7 @@ const http = require('http');
 
 const settings = require('electron-settings');
 
-const application_menu = require('./lib/js/application-menu')
+const application_menu = require('./lib/js/main_process/application-menu')
 
 global.mainWindow = null;
 
