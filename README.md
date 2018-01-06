@@ -36,11 +36,11 @@ https://github.com/yukimura1227/reveal_lightning/releases
 
 ### Start Server locally
 It's start http server on 8000 port when starting reveal_lightning.app.   
-So you can access presentation content on http://localhost:8000/reveal_view.html
+So you can access presentation content on http://localhost:8000/reveal_view.html  
+(you can change listen port at system preferences.)
 
 ### Appearance
-<!-- ![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v0.0.2/readme_resource/area_explain.svg) -->
-![](./readme_resource/area_explain.svg)
+![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v0.0.3/readme_resource/area_explain.png)
 
 ### Functions
 #### 1. editor area
@@ -59,6 +59,7 @@ Tool buttons give
 - presentation button(open system default browser)
 - reload button for presentation area
 - print button(open system default browser with print-pdf parameter)
+- add custom element sentence(ex) &lt;!-- .element: class="fragment grow" --&gt;)
 
 #### 4. presentation area
 Presentation contents result displays here.  
@@ -66,13 +67,11 @@ If you want to reload then you hover the gear icon and click reload button.
 
 ## Future functions
 
-- [ ] button for adding useful style(ex. fragment function)
 - [ ] right click menu instead of gear icon.
 - [ ] useful keyboard shortcut.
 - [ ] image paste from file.
 - [ ] save and load files as any name.
 - [ ] using mathjax on preview area.
-- [ ] change server listen port anyself.
 - [ ] change theme for reveal.js
 
 ## Contributing
