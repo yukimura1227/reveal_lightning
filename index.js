@@ -1,34 +1,44 @@
 "use strict";
-const electron = require("electron");
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
-const NodeStatic = require('node-static');
-const path = require('path')
-const url  = require('url')
-global.target_port = '8000';
-let mainWindow;
+const electron        = require("electron");
+const {app, BrowserWindow, Menu} = electron;
 
-var file = new NodeStatic.Server(__dirname + '/');
+const path = require('path');
+const url  = require('url');
 
-require('http').createServer(function (request, response) {
-  request.addListener('end', function () {
-    file.serve(request, response);
-  }).resume();
-}).listen(global.target_port);//ポートは空いていそうなところで。
+const settings = require('electron-settings');
 
+const application_menu = require('./lib/js/main_process/application-menu');
+const ipc_main = require('./lib/js/main_process/ipc_main');
+
+global.mainWindow = null;
+
+app.on('ready', () => {
+  settings.set('target_md', { file_path: __dirname + '/sample.md' });
+  if(!settings.has('server.port')) {
+    settings.set('server', { port: '8000' });
+  }
+  settings.set('url', {
+    presentation: 'http://localhost:' + settings.get('server.port') + '/reveal_view.html',
+    print: settings.get('url.presentation') + '?print-pdf'
+  });
+  ipc_main.start_server(settings.get('server.port'));
+});
 
 app.on('window-all-closed', () => app.quit());
 app.on('activate', () => {
-  mainWindow = new BrowserWindow({width: 960, height: 600});
+  const menu = Menu.buildFromTemplate(application_menu.menu_template);
+  Menu.setApplicationMenu(menu);
+
+  global.mainWindow = new BrowserWindow({width: 960, height: 600});
 
   //ローカルで立てたサーバーにアクセス
-  mainWindow.loadURL(url.format({
+  global.mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, '/index.html'),
     protocol: 'file:',
     slashes: true
   }));
-  // mainWindow.webContents.openDevTools();
+  // global.mainWindow.webContents.openDevTools();
 
   // ウィンドウが閉じられたらアプリも終了
-  mainWindow.on('closed', () => mainWindow = null );
+  global.mainWindow.on('closed', () => global.mainWindow = null );
 });

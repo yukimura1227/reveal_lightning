@@ -1,6 +1,6 @@
 {
   "name": "reveal_lightning",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "quick and simple tool for presentation contents",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
   "dependencies": {
     "ace-min-noconflict": "^1.1.9",
     "electron": "^1.7.10",
+    "electron-settings": "^3.1.4",
     "font-awesome": "^4.7.0",
     "highlight.js": "^9.12.0",
     "jquery": "^3.2.1",
@@ -33,7 +34,8 @@
     "mathjax": "^2.7.2",
     "node-static": "^0.7.10",
     "reveal.js": "github:hakimel/reveal.js#master",
-    "uikit": "^3.0.0-beta.35"
+    "uikit": "^3.0.0-beta.35",
+    "vex-js": "^4.0.1"
   },
   "devDependencies": {
     "electron-packager": "^10.1.0"

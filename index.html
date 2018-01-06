@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="lib/css/utility.css" />
     <link rel="stylesheet" href="node_modules/highlight.js/styles/zenburn.css" />
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="node_modules/vex-js/dist/css/vex.css" />
+    <link rel="stylesheet" href="node_modules/vex-js/dist/css/vex-theme-os.css" />
 
     <script src="lib/js/setup.js" ></script>
 
@@ -30,6 +32,22 @@
         <a id="js-print-btn"              class="uk-icon-button" href="javascript:void(0);" >
           <i class="fa fa-print"></i>
         </a>
+        <a id="js-fragment-btn"                 class="uk-icon-button" href="javascript:void(0);" uk-icon="icon: move"></a>
+        <a id="js-fragment-grow-btn"            class="uk-icon-button" href="javascript:void(0);" uk-icon="icon: plus-circle"></a>
+        <a id="js-fragment-shrink-btn"          class="uk-icon-button" href="javascript:void(0);" uk-icon="icon: minus-circle"></a>
+        <a id="js-fragment-fade-up-btn"         class="uk-icon-button" href="javascript:void(0);" uk-icon="icon: arrow-up"></a>
+        <a id="js-fragment-fade-down-btn"       class="uk-icon-button" href="javascript:void(0);" uk-icon="icon: arrow-down"></a>
+        <a id="js-fragment-fade-left-btn"       class="uk-icon-button" href="javascript:void(0);" uk-icon="icon: arrow-left"></a>
+        <a id="js-fragment-fade-right-btn"      class="uk-icon-button" href="javascript:void(0);" uk-icon="icon: arrow-right"></a>
+        <a id="js-fragment-current-visible-btn" class="uk-icon-button" href="javascript:void(0);" >
+          <i class="fa fa-spinner fa-spin"></i>
+        </a>
+        <a id="js-fragment-highlight-current-blue-btn" class="uk-icon-button" href="javascript:void(0);" style="color: blue;">hl1</a>
+        <a id="js-fragment-highlight-red-btn"          class="uk-icon-button" href="javascript:void(0);" style="color: red;">hl</a>
+
+        <a id="js-style-full-width-btn" class="uk-icon-button" href="javascript:void(0);" >
+          <i class="fa fa-arrows-h"></i>
+        </a>
       </nav>
     </div>
     <div class="uk-container-expand fill-height">
@@ -45,10 +63,14 @@
         <iframe id="js-reveal-view" src="reveal_view.html" class="fill-height uk-width-1-1"></iframe>
       <div>
     </div>
-    <script src="convert.js" ></script>
+    <script src="lib/js/markdown_support.js" ></script>
     <script src="lib/js/utility.js" ></script>
     <script src="lib/js/tools.js" ></script>
+    <script src="lib/js/context_menu.js" ></script>
+    <script src="lib/js/ipc_renderer.js" ></script>
     <script src="node_modules/uikit/dist/js/uikit.js"></script>
     <script src="node_modules/uikit/dist/js/uikit-icons.min.js"></script>
+    <script src="node_modules/vex-js/dist/js/vex.combined.min.js"></script>
+    <script>vex.defaultOptions.className = 'vex-theme-os';</script>
   </body>
 </html>
