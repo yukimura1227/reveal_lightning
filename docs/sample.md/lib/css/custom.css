@@ -1,0 +1,12 @@
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  text-transform: none;
+}
+.reveal ul li ul li {
+    font-size: 80%;
+}
+.reveal h1, .reveal h2, .reveal h3 {
+    font-weight: bold;
+}
+.reveal code {
+  font-family:  'Ricty Diminished',sans-serif, Monaco, monospace;
+}
