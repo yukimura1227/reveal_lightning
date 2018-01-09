@@ -22,13 +22,20 @@ app.on('ready', () => {
     print: settings.get('url.presentation') + '?print-pdf'
   });
   ipc_main.start_server(settings.get('server.port'));
+  if(global.mainWindow === null ) {
+    createWindow();
+  }
 });
 
 app.on('window-all-closed', () => app.quit());
 app.on('activate', () => {
   const menu = Menu.buildFromTemplate(application_menu.menu_template);
   Menu.setApplicationMenu(menu);
-
+  if(global.mainWindow === null ) {
+    createWindow();
+  }
+});
+function createWindow() {
   global.mainWindow = new BrowserWindow({width: 960, height: 600});
 
   //ローカルで立てたサーバーにアクセス
@@ -41,4 +48,4 @@ app.on('activate', () => {
 
   // ウィンドウが閉じられたらアプリも終了
   global.mainWindow.on('closed', () => global.mainWindow = null );
-});
+}
