@@ -13,17 +13,10 @@ https://github.com/yukimura1227/reveal_lightning/releases
 
 ## Developing
 
-### Prerequisites
-
-yarn is required for developing.  
-see: https://yarnpkg.com/lang/en/docs/install/
-
-### Setup
-
 ```shell
 git clone https://github.com/yukimura1227/reveal_lightning
 cd reveal_lightning
-yarn
+npm install
 ```
 
 ### Building
