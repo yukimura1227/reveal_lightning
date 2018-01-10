@@ -27,7 +27,10 @@ app.on('ready', () => {
   }
 });
 
-app.on('window-all-closed', () => app.quit());
+app.on('window-all-closed', () => {
+  electron.session.defaultSession.clearCache(() => {});
+  app.quit();
+});
 app.on('activate', () => {
   const menu = Menu.buildFromTemplate(application_menu.menu_template);
   Menu.setApplicationMenu(menu);
