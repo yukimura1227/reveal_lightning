@@ -24,9 +24,11 @@ app.on('ready', () => {
   if(!settings.has('server.port')) {
     settings.set('server', { port: '8000' });
   }
+  var presentation_url = 'http://localhost:' + settings.get('server.port') + '/reveal_view.html';
+  var print_url = presentation_url + '?print-pdf'
   settings.set('url', {
-    presentation: 'http://localhost:' + settings.get('server.port') + '/reveal_view.html',
-    print: settings.get('url.presentation') + '?print-pdf'
+    presentation: presentation_url,
+    print: print_url
   });
   ipc_main.start_server(settings.get('server.port'));
   if(global.mainWindow === null ) {
