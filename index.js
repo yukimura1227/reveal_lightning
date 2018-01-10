@@ -13,7 +13,14 @@ const ipc_main = require('./lib/js/main_process/ipc_main');
 global.mainWindow = null;
 
 app.on('ready', () => {
-  settings.set('target_md', { file_path: __dirname + '/sample.md' });
+  if(!settings.has('target_md.file_path')) {
+    var workdir = __dirname;
+    var file_path = __dirname + '/sample.md';
+    settings.set('target_md', {
+      workdir: workdir,
+      file_path: file_path,
+    });
+  }
   if(!settings.has('server.port')) {
     settings.set('server', { port: '8000' });
   }
