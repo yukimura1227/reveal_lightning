@@ -25,6 +25,8 @@ app.on('ready', () => {
   if(global.mainWindow === null ) {
     createWindow();
   }
+  const menu = Menu.buildFromTemplate(application_menu.menu_template);
+  Menu.setApplicationMenu(menu);
 });
 
 app.on('window-all-closed', () => {
@@ -32,8 +34,6 @@ app.on('window-all-closed', () => {
   app.quit();
 });
 app.on('activate', () => {
-  const menu = Menu.buildFromTemplate(application_menu.menu_template);
-  Menu.setApplicationMenu(menu);
   if(global.mainWindow === null ) {
     createWindow();
   }
