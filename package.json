@@ -4,7 +4,8 @@
   "description": "quick and simple tool for presentation contents",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack:osx": "build --mac --x64"
   },
   "repository": {
     "type": "git",
@@ -40,5 +41,14 @@
     "electron": "^1.7.10",
     "electron-builder": "^19.53.4",
     "electron-packager": "^10.1.0"
+  },
+  "build": {
+    "appId": "com.electron.reveal_lightning",
+    "mac": {
+      "target": "dmg"
+    },
+    "directories": {
+      "output": "distribution"
+    }
   }
 }
