@@ -4,7 +4,11 @@
   "description": "quick and simple tool for presentation contents",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "build --mac --x64 && build --win --x64",
+    "pack:osx": "build --mac --x64",
+    "pack:win": "build --win --x64",
+    "pack:linux": "build --linux --x64"
   },
   "repository": {
     "type": "git",
@@ -25,7 +29,6 @@
   "homepage": "https://github.com/yukimura1227/reveal_lightning#readme",
   "dependencies": {
     "ace-min-noconflict": "^1.1.9",
-    "electron": "^1.7.10",
     "electron-settings": "^3.1.4",
     "font-awesome": "^4.7.0",
     "highlight.js": "^9.12.0",
@@ -38,6 +41,24 @@
     "vex-js": "^4.0.1"
   },
   "devDependencies": {
-    "electron-packager": "^10.1.0"
+    "electron": "^1.7.10",
+    "electron-builder": "^19.53.4"
+  },
+  "build": {
+    "asar": false,
+    "appId": "com.electron.reveal_lightning",
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Development"
+    },
+    "directories": {
+      "output": "distribution"
+    }
   }
 }
