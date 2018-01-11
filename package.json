@@ -43,6 +43,7 @@
     "electron-packager": "^10.1.0"
   },
   "build": {
+    "asar": false,
     "appId": "com.electron.reveal_lightning",
     "mac": {
       "target": "dmg"
