@@ -42,8 +42,7 @@
   },
   "devDependencies": {
     "electron": "^1.7.10",
-    "electron-builder": "^19.53.4",
-    "electron-packager": "^10.1.0"
+    "electron-builder": "^19.53.4"
   },
   "build": {
     "asar": false,
