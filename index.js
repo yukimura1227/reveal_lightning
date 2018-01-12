@@ -4,6 +4,7 @@ const {app, BrowserWindow, Menu} = electron;
 
 const path = require('path');
 const url  = require('url');
+const fs   = require('fs');
 
 const settings = require('electron-settings');
 
@@ -13,13 +14,18 @@ const ipc_main = require('./lib/js/main_process/ipc_main');
 global.mainWindow = null;
 
 app.on('ready', () => {
+  settings.set('app', {
+    root_dir: __dirname,
+    work_dir: __dirname + '/work'
+  });
   if(!settings.has('target_md.file_path')) {
-    var workdir = __dirname;
-    var file_path = __dirname + '/sample.md';
-    settings.set('target_md', {
-      workdir: workdir,
-      file_path: file_path,
-    });
+    var file_name          = 'sample.md';
+    var file_relative_dir  = 'work/sample';
+    var file_relative_path = file_relative_dir + '/' + file_name;
+    var file_dir  = settings.get('app.work_dir') + '/sample';
+    var file_path = file_dir + '/sample.md';
+    settings.set('target_md', { file_dir: file_dir, file_path: file_path, file_relative_dir: file_relative_dir });
+    fs.writeFileSync(settings.get('app.root_dir') + '/load_target.json', '{ "load_target": "' + file_relative_path + '" }');
   }
   if(!settings.has('server.port')) {
     settings.set('server', { port: '8000' });
