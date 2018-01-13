@@ -1,5 +1,4 @@
 # SAMPLE TITLE
-aaa
 
 ----------
 
