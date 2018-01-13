@@ -1,11 +1,11 @@
 {
   "name": "reveal_lightning",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "quick and simple tool for presentation contents",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pack": "build --mac --x64 && build --win --x64",
+    "pack": "build --mac --x64 && build --win --x64 && build --linux --x64",
     "pack:osx": "build --mac --x64",
     "pack:win": "build --win --x64",
     "pack:linux": "build --linux --x64"
