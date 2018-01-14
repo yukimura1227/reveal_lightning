@@ -26,6 +26,7 @@ app.on('ready', () => {
     var file_path = file_dir + '/sample.md';
     settings.set('target_md', { file_dir: file_dir, file_path: file_path, file_relative_dir: file_relative_dir });
     fs.writeFileSync(settings.get('app.root_dir') + '/load_target.json', '{ "load_target": "' + file_relative_path + '" }');
+    fs.writeFileSync(settings.get('app.root_dir') + '/theme.json', '{ "theme_css_path": "node_modules/reveal.js/css/theme/black.css", "theme_css_filename": "black.css" }');
   }
   if(!settings.has('server.port')) {
     settings.set('server', { port: '8000' });
