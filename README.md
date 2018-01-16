@@ -22,8 +22,7 @@ npm install
 ### Building
 
 ```shell
-cd distribution
-npx electron-packager ../ reveal_lightning --platform=darwin,win32,linux --arch=x64
+npm run pack
 ```
 
 ### Deploying / Publishing
