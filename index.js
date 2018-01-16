@@ -15,7 +15,7 @@ const ipc_main = require('./lib/js/main_process/ipc_main');
 global.mainWindow = null;
 
 app.on('ready', () => {
-  settings.set('app', { root_dir: __dirname, work_dir: __dirname + '/work' });
+  settings.set('app', { root_dir: __dirname });
   if(!settings.has('env.work_dir')) {
     var work_dir_name = 'work';
     settings.set('env', { work_dir: __dirname + '/' + work_dir_name, work_dir_name: work_dir_name });
