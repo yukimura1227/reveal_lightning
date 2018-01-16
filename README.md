@@ -22,8 +22,7 @@ npm install
 ### Building
 
 ```shell
-cd distribution
-npx electron-packager ../ reveal_lightning --platform=darwin,win32,linux --arch=x64
+npm run pack
 ```
 
 ### Deploying / Publishing
@@ -40,7 +39,7 @@ So you can access presentation content on http://localhost:8000/reveal_view.html
 (you can change listen port at system preferences.)
 
 ### Appearance
-![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v0.0.7/readme_resource/area_explain.png)
+![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v0.0.9/readme_resource/area_explain.png)
 
 ### Functions
 #### 1. editor area
@@ -71,7 +70,6 @@ If you want to reload then you hover the gear icon and click reload button.
 - [ ] useful keyboard shortcut.
 - [ ] image paste from file.
 - [ ] using mathjax on preview area.
-- [ ] change theme for reveal.js
 
 ## Contributing
 If you'd like to contribute, please fork the repository and use a feature
