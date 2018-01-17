@@ -24,9 +24,7 @@ app.on('ready', () => {
   setup_target_markdown_path();
   setup_server_url();
   ipc_main.start_server(settings.get('server.port'));
-  if(global.mainWindow === null ) {
-    createWindow();
-  }
+  createWindow();
   const menu = Menu.buildFromTemplate(application_menu.menu_template);
   Menu.setApplicationMenu(menu);
 });
@@ -77,12 +75,14 @@ app.on('window-all-closed', () => {
   electron.session.defaultSession.clearCache(() => {});
   app.quit();
 });
+
 app.on('activate', () => {
-  if(global.mainWindow === null ) {
-    createWindow();
-  }
+  createWindow();
 });
 function createWindow() {
+  if(global.mainWindow !== null ) {
+    return;
+  }
   global.mainWindow = new BrowserWindow({width: 960, height: 600});
 
   global.mainWindow.loadURL(url.format({
