@@ -21,16 +21,7 @@ app.on('ready', () => {
     var default_work_dir_name = 'work';
     settings.set('env', { work_dir: settings.get('app.server_root') + '/' + default_work_dir_name, work_dir_name: default_work_dir_name });
   }
-  if(!settings.has('target_md.file_path')) {
-    var default_file_name  = 'sample.md';
-    var file_relative_dir  = settings.get('env.work_dir_name') + '/sample';
-    var file_relative_path = file_relative_dir + '/' + default_file_name;
-    var file_dir  = settings.get('env.work_dir') + '/sample';
-    var file_path = file_dir + '/' + default_file_name;
-    settings.set('target_md', { file_dir: file_dir, file_path: file_path, file_relative_dir: file_relative_dir });
-    fs.writeFileSync(settings.get('app.root_dir') + '/load_target.json', '{ "load_target": "' + file_relative_path + '" }');
-    fs.writeFileSync(settings.get('app.root_dir') + '/theme.json', '{ "theme_css_path": "node_modules/reveal.js/css/theme/black.css", "theme_css_filename": "black.css" }');
-  }
+  setup_target_markdown_path();
   setup_server_url();
   ipc_main.start_server(settings.get('server.port'));
   if(global.mainWindow === null ) {
@@ -39,6 +30,19 @@ app.on('ready', () => {
   const menu = Menu.buildFromTemplate(application_menu.menu_template);
   Menu.setApplicationMenu(menu);
 });
+
+function setup_target_markdown_path() {
+  if(!settings.has('target_md.file_path')) {
+    var default_file_name  = 'sample.md';
+    var file_relative_dir  = settings.get('env.work_dir_name') + '/sample';
+    var file_relative_path = file_relative_dir + '/' + default_file_name;
+    var file_dir           = settings.get('env.work_dir') + '/sample';
+    var file_path          = file_dir + '/' + default_file_name;
+    settings.set('target_md', { file_dir: file_dir, file_path: file_path, file_relative_dir: file_relative_dir });
+    fs.writeFileSync(settings.get('app.root_dir') + '/load_target.json', '{ "load_target": "' + file_relative_path + '" }');
+    fs.writeFileSync(settings.get('app.root_dir') + '/theme.json', '{ "theme_css_path": "node_modules/reveal.js/css/theme/black.css", "theme_css_filename": "black.css" }');
+  }
+}
 
 function setup_server_url() {
   if(!settings.has('server.port')) {
