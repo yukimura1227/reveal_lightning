@@ -15,7 +15,19 @@ const ipc_main = require('./lib/js/main_process/ipc_main');
 global.mainWindow = null;
 
 app.on('ready', () => {
-  settings.set('app', { root_dir: __dirname });
+  settings.set('app', { root_dir: __dirname , server_root: app.getPath('userData') + '/www'});
+  var server_root = settings.get('app.server_root');
+  if(!fs.existsSync(server_root)) {
+    fs.mkdirSync(server_root);
+    fs.symlinkSync(settings.get('app.root_dir') + '/index.html'      , server_root + '/index.html');
+    fs.symlinkSync(settings.get('app.root_dir') + '/reveal_view.html', server_root + '/reveal_view.html');
+    fs.symlinkSync(settings.get('app.root_dir') + '/load_target.json', server_root + '/load_target.json');
+    fs.symlinkSync(settings.get('app.root_dir') + '/theme.json'      , server_root + '/theme.json');
+    fs.symlinkSync(settings.get('app.root_dir') + '/node_modules'    , server_root + '/node_modules');
+    fs.symlinkSync(settings.get('app.root_dir') + '/lib'             , server_root + '/lib');
+    fs.symlinkSync(settings.get('app.root_dir') + '/readme_resource' , server_root + '/readme_resource');
+    fs.symlinkSync(settings.get('app.root_dir') + '/work'            , server_root + '/work');
+  }
   if(!settings.has('env.work_dir')) {
     var work_dir_name = 'work';
     settings.set('env', { work_dir: __dirname + '/' + work_dir_name, work_dir_name: work_dir_name });
@@ -60,9 +72,8 @@ app.on('activate', () => {
 function createWindow() {
   global.mainWindow = new BrowserWindow({width: 960, height: 600});
 
-  //ローカルで立てたサーバーにアクセス
   global.mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, '/index.html'),
+    pathname: path.join(settings.get('app.server_root'), '/index.html'),
     protocol: 'file:',
     slashes: true
   }));
