@@ -31,6 +31,16 @@ app.on('ready', () => {
     fs.writeFileSync(settings.get('app.root_dir') + '/load_target.json', '{ "load_target": "' + file_relative_path + '" }');
     fs.writeFileSync(settings.get('app.root_dir') + '/theme.json', '{ "theme_css_path": "node_modules/reveal.js/css/theme/black.css", "theme_css_filename": "black.css" }');
   }
+  setup_server_url();
+  ipc_main.start_server(settings.get('server.port'));
+  if(global.mainWindow === null ) {
+    createWindow();
+  }
+  const menu = Menu.buildFromTemplate(application_menu.menu_template);
+  Menu.setApplicationMenu(menu);
+});
+
+function setup_server_url() {
   if(!settings.has('server.port')) {
     settings.set('server', { port: '8000' });
   }
@@ -40,13 +50,7 @@ app.on('ready', () => {
     presentation: presentation_url,
     print: print_url
   });
-  ipc_main.start_server(settings.get('server.port'));
-  if(global.mainWindow === null ) {
-    createWindow();
-  }
-  const menu = Menu.buildFromTemplate(application_menu.menu_template);
-  Menu.setApplicationMenu(menu);
-});
+}
 
 function setup_server_root(server_root) {
   if(!fs.existsSync(server_root)) {
