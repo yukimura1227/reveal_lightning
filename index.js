@@ -17,10 +17,7 @@ global.mainWindow = null;
 app.on('ready', () => {
   setup_application_common_setting();
   setup_server_root(settings.get('app.server_root'));
-  if(!settings.has('env.work_dir')) {
-    var default_work_dir_name = 'work';
-    settings.set('env', { work_dir: settings.get('app.server_root') + '/' + default_work_dir_name, work_dir_name: default_work_dir_name });
-  }
+  setup_user_work_dir();
   setup_target_markdown_path();
   setup_server_url();
   ipc_main.start_server(settings.get('server.port'));
@@ -75,6 +72,16 @@ function setup_server_root(server_root) {
     if(!fs.existsSync(link_from) ) {
       fs.symlinkSync(link_dist, link_from);
     }
+  }
+}
+
+function setup_user_work_dir() {
+  if(!settings.has('env.work_dir')) {
+    var default_work_dir_name = 'work';
+    settings.set('env', {
+      work_dir: settings.get('app.server_root') + '/' + default_work_dir_name,
+      work_dir_name: default_work_dir_name
+    });
   }
 }
 
