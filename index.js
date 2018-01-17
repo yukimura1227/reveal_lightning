@@ -16,18 +16,7 @@ global.mainWindow = null;
 
 app.on('ready', () => {
   settings.set('app', { root_dir: __dirname , server_root: app.getPath('userData') + '/www'});
-  var server_root = settings.get('app.server_root');
-  if(!fs.existsSync(server_root)) {
-    fs.mkdirSync(server_root);
-    fs.symlinkSync(settings.get('app.root_dir') + '/index.html'      , server_root + '/index.html');
-    fs.symlinkSync(settings.get('app.root_dir') + '/reveal_view.html', server_root + '/reveal_view.html');
-    fs.symlinkSync(settings.get('app.root_dir') + '/load_target.json', server_root + '/load_target.json');
-    fs.symlinkSync(settings.get('app.root_dir') + '/theme.json'      , server_root + '/theme.json');
-    fs.symlinkSync(settings.get('app.root_dir') + '/node_modules'    , server_root + '/node_modules');
-    fs.symlinkSync(settings.get('app.root_dir') + '/lib'             , server_root + '/lib');
-    fs.symlinkSync(settings.get('app.root_dir') + '/readme_resource' , server_root + '/readme_resource');
-    fs.symlinkSync(settings.get('app.root_dir') + '/work'            , server_root + '/work');
-  }
+  setup_server_root(settings.get('app.server_root'));
   if(!settings.has('env.work_dir')) {
     var work_dir_name = 'work';
     settings.set('env', { work_dir: __dirname + '/' + work_dir_name, work_dir_name: work_dir_name });
@@ -59,6 +48,23 @@ app.on('ready', () => {
   const menu = Menu.buildFromTemplate(application_menu.menu_template);
   Menu.setApplicationMenu(menu);
 });
+
+function setup_server_root(server_root) {
+  if(!fs.existsSync(server_root)) {
+    fs.mkdirSync(server_root);
+  }
+  var link_targets = [
+    'index.html', 'reveal_view.html', 'load_target.json', 'theme.json',
+    'node_modules', 'lib', 'readme_resource', 'work'
+  ];
+  for( var i = 0; i < link_targets.length; i++ ) {
+    var link_dist = settings.get('app.root_dir') + '/' + link_targets[i];
+    var link_from = server_root + '/' + link_targets[i];
+    if(!fs.existsSync(link_from) ) {
+      fs.symlinkSync(link_dist, link_from);
+    }
+  }
+}
 
 app.on('window-all-closed', () => {
   electron.session.defaultSession.clearCache(() => {});
