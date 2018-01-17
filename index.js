@@ -15,34 +15,43 @@ const ipc_main = require('./lib/js/main_process/ipc_main');
 global.mainWindow = null;
 
 app.on('ready', () => {
-  settings.set('app', { root_dir: __dirname , server_root: app.getPath('userData') + '/www'});
-  var server_root = settings.get('app.server_root');
-  if(!fs.existsSync(server_root)) {
-    fs.mkdirSync(server_root);
-    fs.symlinkSync(settings.get('app.root_dir') + '/index.html'      , server_root + '/index.html');
-    fs.symlinkSync(settings.get('app.root_dir') + '/reveal_view.html', server_root + '/reveal_view.html');
-    fs.symlinkSync(settings.get('app.root_dir') + '/load_target.json', server_root + '/load_target.json');
-    fs.symlinkSync(settings.get('app.root_dir') + '/theme.json'      , server_root + '/theme.json');
-    fs.symlinkSync(settings.get('app.root_dir') + '/node_modules'    , server_root + '/node_modules');
-    fs.symlinkSync(settings.get('app.root_dir') + '/lib'             , server_root + '/lib');
-    fs.symlinkSync(settings.get('app.root_dir') + '/readme_resource' , server_root + '/readme_resource');
-    fs.symlinkSync(settings.get('app.root_dir') + '/work'            , server_root + '/work');
-  }
-  if(!settings.has('env.work_dir')) {
-    var work_dir_name = 'work';
-    settings.set('env', { work_dir: __dirname + '/' + work_dir_name, work_dir_name: work_dir_name });
-  }
+  setup_application_common_setting();
+  setup_server_root(settings.get('app.server_root'));
+  setup_user_work_dir();
+  setup_target_markdown_path();
+  setup_server_url();
+  ipc_main.start_server(settings.get('server.port'));
+  createWindow();
+  const menu = Menu.buildFromTemplate(application_menu.menu_template);
+  Menu.setApplicationMenu(menu);
+});
+
+function setup_target_markdown_path() {
   if(!settings.has('target_md.file_path')) {
-    var file_name          = 'sample.md';
-    var work_dir_name      = parse_path(settings.get('env.work_dir')).basename;
-    var file_relative_dir  = work_dir_name + '/sample';
-    var file_relative_path = file_relative_dir + '/' + file_name;
-    var file_dir  = settings.get('env.work_dir') + '/sample';
-    var file_path = file_dir + '/sample.md';
+    var default_file_name  = 'sample.md';
+    var file_relative_dir  = settings.get('env.work_dir_name') + '/sample';
+    var file_relative_path = file_relative_dir + '/' + default_file_name;
+    var file_dir           = settings.get('env.work_dir') + '/sample';
+    var file_path          = file_dir + '/' + default_file_name;
     settings.set('target_md', { file_dir: file_dir, file_path: file_path, file_relative_dir: file_relative_dir });
-    fs.writeFileSync(settings.get('app.root_dir') + '/load_target.json', '{ "load_target": "' + file_relative_path + '" }');
-    fs.writeFileSync(settings.get('app.root_dir') + '/theme.json', '{ "theme_css_path": "node_modules/reveal.js/css/theme/black.css", "theme_css_filename": "black.css" }');
+    fs.writeFileSync(settings.get('app.config_file.load_target'), '{ "load_target": "' + file_relative_path + '" }');
+    fs.writeFileSync(settings.get('app.config_file.theme'), '{ "theme_css_path": "node_modules/reveal.js/css/theme/black.css", "theme_css_filename": "black.css" }');
   }
+}
+
+function setup_application_common_setting() {
+  var app_root_dir = __dirname;
+  settings.set('app', {
+    root_dir: app_root_dir,
+    server_root: app.getPath('userData') + '/www',
+    config_file: {
+      load_target: app_root_dir + '/load_target.json',
+      theme: app_root_dir + '/theme.json'
+    }
+  });
+}
+
+function setup_server_url() {
   if(!settings.has('server.port')) {
     settings.set('server', { port: '8000' });
   }
@@ -52,24 +61,48 @@ app.on('ready', () => {
     presentation: presentation_url,
     print: print_url
   });
-  ipc_main.start_server(settings.get('server.port'));
-  if(global.mainWindow === null ) {
-    createWindow();
+}
+
+function setup_server_root(server_root) {
+  if(!fs.existsSync(server_root)) {
+    fs.mkdirSync(server_root);
   }
-  const menu = Menu.buildFromTemplate(application_menu.menu_template);
-  Menu.setApplicationMenu(menu);
-});
+  var link_targets = [
+    'index.html', 'reveal_view.html', 'load_target.json', 'theme.json',
+    'node_modules', 'lib', 'readme_resource', 'work'
+  ];
+  for( var i = 0; i < link_targets.length; i++ ) {
+    var link_dist = settings.get('app.root_dir') + '/' + link_targets[i];
+    var link_from = server_root + '/' + link_targets[i];
+    if(!fs.existsSync(link_from) ) {
+      fs.symlinkSync(link_dist, link_from);
+    }
+  }
+}
+
+function setup_user_work_dir() {
+  if(!settings.has('env.work_dir')) {
+    var default_work_dir_name = 'work';
+    settings.set('env', {
+      work_dir: settings.get('app.server_root') + '/' + default_work_dir_name,
+      work_dir_name: default_work_dir_name
+    });
+  }
+}
 
 app.on('window-all-closed', () => {
   electron.session.defaultSession.clearCache(() => {});
   app.quit();
 });
+
 app.on('activate', () => {
-  if(global.mainWindow === null ) {
-    createWindow();
-  }
+  createWindow();
 });
+
 function createWindow() {
+  if(global.mainWindow !== null ) {
+    return;
+  }
   global.mainWindow = new BrowserWindow({width: 960, height: 600});
 
   global.mainWindow.loadURL(url.format({
