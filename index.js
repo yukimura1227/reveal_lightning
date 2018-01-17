@@ -15,7 +15,7 @@ const ipc_main = require('./lib/js/main_process/ipc_main');
 global.mainWindow = null;
 
 app.on('ready', () => {
-  settings.set('app', { root_dir: __dirname , server_root: app.getPath('userData') + '/www'});
+  setup_application_common_setting();
   setup_server_root(settings.get('app.server_root'));
   if(!settings.has('env.work_dir')) {
     var default_work_dir_name = 'work';
@@ -40,6 +40,13 @@ function setup_target_markdown_path() {
     fs.writeFileSync(settings.get('app.root_dir') + '/load_target.json', '{ "load_target": "' + file_relative_path + '" }');
     fs.writeFileSync(settings.get('app.root_dir') + '/theme.json', '{ "theme_css_path": "node_modules/reveal.js/css/theme/black.css", "theme_css_filename": "black.css" }');
   }
+}
+
+function setup_application_common_setting() {
+  settings.set('app', {
+    root_dir: __dirname ,
+    server_root: app.getPath('userData') + '/www'
+  });
 }
 
 function setup_server_url() {
