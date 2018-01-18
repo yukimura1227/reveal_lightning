@@ -17,6 +17,7 @@ global.mainWindow = null;
 app.on('ready', () => {
   setup_application_common_setting();
   setup_server_root(settings.get('app.server_root'));
+  setup_export_to();
   setup_user_work_dir();
   setup_target_markdown_path();
   setup_server_url();
@@ -25,6 +26,12 @@ app.on('ready', () => {
   const menu = Menu.buildFromTemplate(application_menu.menu_template);
   Menu.setApplicationMenu(menu);
 });
+
+function setup_export_to() {
+  if(!settings.has('export.to')) {
+    settings.set('export', { to: app.getPath('userData') + '/default_exports'});
+  }
+}
 
 function setup_target_markdown_path() {
   if(!settings.has('target_md.file_path')) {
