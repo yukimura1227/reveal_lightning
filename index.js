@@ -33,7 +33,12 @@ function setup_target_markdown_path() {
     var file_relative_path = file_relative_dir + '/' + default_file_name;
     var file_dir           = settings.get('env.work_dir') + '/sample';
     var file_path          = file_dir + '/' + default_file_name;
-    settings.set('target_md', { file_dir: file_dir, file_path: file_path, file_relative_dir: file_relative_dir });
+    settings.set('target_md', {
+      file_dir: file_dir,
+      file_path: file_path,
+      file_relative_dir: file_relative_dir,
+      file_relative_path: file_relative_path
+    });
     fs.writeFileSync(settings.get('app.config_file.load_target'), '{ "load_target": "' + file_relative_path + '" }');
     fs.writeFileSync(settings.get('app.config_file.theme'), '{ "theme_css_path": "node_modules/reveal.js/css/theme/black.css", "theme_css_filename": "black.css" }');
   }
