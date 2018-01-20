@@ -74,7 +74,7 @@ Session.vim
 # Auto-generated tag files
 tags
 
-distribution/reveal_lightning*
+distribution/*
 
 load_target.json
 theme.json
