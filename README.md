@@ -4,7 +4,8 @@
 # reveal_lightning
 simple markdown editor and http server for [reveal.js](https://github.com/hakimel/reveal.js) presentation powered by electron.  
 reveal.js is cool presentation tool that good-look presentation contents could create by html and markdown.  
-presentation contents like this -> [https://revealjs.com](https://revealjs.com)
+presentation contents like this -> [https://revealjs.com](https://revealjs.com)  
+[about reveal_lightning](https://yukimura1227.github.io/try_github_pages/about_reveal_rightning/)
 
 ## Installing / Getting started
 
