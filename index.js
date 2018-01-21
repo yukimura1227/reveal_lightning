@@ -86,9 +86,10 @@ function setup_server_root(server_root) {
   for( var i = 0; i < link_targets.length; i++ ) {
     var link_dist = settings.get('app.root_dir') + '/' + link_targets[i];
     var link_from = server_root + '/' + link_targets[i];
-    if(!fs.existsSync(link_from) ) {
-      fs.symlinkSync(link_dist, link_from);
+    if(fs.existsSync(link_from) ) {
+      fs.unlinkSync(link_from);
     }
+    fs.symlinkSync(link_dist, link_from);
   }
 }
 
