@@ -13,16 +13,24 @@ https://github.com/yukimura1227/reveal_lightning/releases
 
 ## Developing
 
+### Prerequisites
+
+yarn is required for developing.
+see: https://yarnpkg.com/lang/en/docs/install/
+
+### Setup
+
+
 ```shell
 git clone https://github.com/yukimura1227/reveal_lightning
 cd reveal_lightning
-npm install
+yarn
 ```
 
 ### Building
 
 ```shell
-npm run pack
+yarn run pack
 ```
 
 ### Deploying / Publishing
@@ -39,7 +47,7 @@ So you can access presentation content on http://localhost:8000/reveal_view.html
 (you can change listen port at system preferences.)
 
 ### Appearance
-![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v0.1.1/readme_resource/area_explain.png)
+![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v0.1.2/readme_resource/area_explain.png)
 
 ### Functions
 #### 1. editor area
