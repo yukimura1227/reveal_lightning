@@ -21,7 +21,7 @@
     "electron",
     "editor"
   ],
-  "author": "yukimura1227",
+  "author": "yukimura1227 <takamura1227@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yukimura1227/reveal_lightning/issues"
@@ -57,7 +57,7 @@
       "target": "nsis"
     },
     "linux": {
-      "target": "AppImage",
+      "target": "deb",
       "category": "Development"
     },
     "directories": {
