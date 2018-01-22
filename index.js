@@ -5,6 +5,7 @@ const {app, BrowserWindow, Menu} = electron;
 const path       = require('path');
 const url        = require('url');
 const fs         = require('fs');
+const fse        = require('fs-extra')
 const parse_path = require('parse-filepath');
 
 const settings = require('electron-settings');
@@ -53,12 +54,13 @@ function setup_target_markdown_path() {
 
 function setup_application_common_setting() {
   var app_root_dir = __dirname;
+  var server_root  = app.getPath('userData') + '/www';
   settings.set('app', {
     root_dir: app_root_dir,
-    server_root: app.getPath('userData') + '/www',
+    server_root: server_root,
     config_file: {
-      load_target: app_root_dir + '/load_target.json',
-      theme: app_root_dir + '/theme.json'
+      load_target: server_root + '/load_target.json',
+      theme: server_root + '/theme.json'
     }
   });
 }
@@ -79,17 +81,24 @@ function setup_server_root(server_root) {
   if(!fs.existsSync(server_root)) {
     fs.mkdirSync(server_root);
   }
-  var link_targets = [
-    'index.html', 'reveal_view.html', 'load_target.json', 'theme.json',
-    'node_modules', 'lib', 'readme_resource', 'work'
-  ];
+  var copy_targets = ['index.html', 'reveal_view.html', 'load_target.json', 'theme.json'];
+  for( var i = 0; i < copy_targets.length; i++ ) {
+    var copy_from = settings.get('app.root_dir') + '/' + copy_targets[i];
+    var copy_dist = server_root + '/' + copy_targets[i];
+    if(!fs.existsSync(copy_dist) ) {
+      fse.copySync(copy_from, copy_dist);
+    }
+  }
+
+  // NOTE: allow directory only cause cannot symlink on windows in default permission
+  var link_targets = ['node_modules', 'lib', 'readme_resource', 'work'];
   for( var i = 0; i < link_targets.length; i++ ) {
     var link_dist = settings.get('app.root_dir') + '/' + link_targets[i];
     var link_from = server_root + '/' + link_targets[i];
     if(fs.existsSync(link_from) ) {
       fs.unlinkSync(link_from);
     }
-    fs.symlinkSync(link_dist, link_from);
+    fs.symlinkSync(link_dist, link_from, 'junction');
   }
 }
 
