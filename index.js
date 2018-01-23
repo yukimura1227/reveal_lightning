@@ -34,8 +34,22 @@ function setup_export_to() {
   }
 }
 
+function is_first_setup() {
+  return !settings.has('target_md.file_path');
+}
+
 function setup_target_markdown_path() {
-  if(!settings.has('target_md.file_path')) {
+  if(is_first_setup()) {
+    var original_work_dir = settings.get('app.root_dir') + '/work';
+    var copy_to_work_dir  = app.getPath('userData') + '/work';
+    var link_from         = settings.get('app.server_root') + '/work';
+    console.log(original_work_dir);
+    console.log(copy_to_work_dir);
+    fse.copySync(original_work_dir, copy_to_work_dir);
+    if(fs.existsSync(link_from) ) {
+      fs.unlinkSync(link_from);
+    }
+    fs.symlinkSync(copy_to_work_dir, link_from, 'junction');
     var default_file_name  = 'sample.md';
     var file_relative_dir  = settings.get('env.work_dir_name') + '/sample';
     var file_relative_path = file_relative_dir + '/' + default_file_name;
@@ -91,7 +105,7 @@ function setup_server_root(server_root) {
   }
 
   // NOTE: allow directory only cause cannot symlink on windows in default permission
-  var link_targets = ['node_modules', 'lib', 'readme_resource', 'work'];
+  var link_targets = ['node_modules', 'lib', 'readme_resource'];
   for( var i = 0; i < link_targets.length; i++ ) {
     var link_dist = settings.get('app.root_dir') + '/' + link_targets[i];
     var link_from = server_root + '/' + link_targets[i];
