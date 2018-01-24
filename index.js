@@ -17,6 +17,7 @@ const ipc_main = require('./lib/js/main_process/ipc_main');
 global.mainWindow = null;
 
 app.on('ready', () => {
+  autoUpdater.checkForUpdatesAndNotify();
   setup_application_common_setting();
   setup_server_root(settings.get('app.server_root'));
   setup_export_to();
