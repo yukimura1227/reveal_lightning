@@ -9,6 +9,7 @@ const fse        = require('fs-extra')
 const parse_path = require('parse-filepath');
 
 const settings = require('electron-settings');
+const { autoUpdater } = require('electron-updater')
 
 const application_menu = require('./lib/js/main_process/application-menu');
 const ipc_main = require('./lib/js/main_process/ipc_main');
