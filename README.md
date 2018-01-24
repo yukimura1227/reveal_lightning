@@ -40,6 +40,14 @@ Using github releases function.
 package upload to here ->
 https://github.com/yukimura1227/reveal_lightning/releases
 
+#### How To Release
+see: ![](https://www.electron.build/configuration/publish#recommended-github-releases-workflow)
+
+```
+export GH_TOKEN=XXXXXXXXXXX
+yarn run release
+```
+
 ## Features
 
 ### Start Server locally

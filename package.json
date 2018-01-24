@@ -1,6 +1,6 @@
 {
   "name": "reveal_lightning",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "quick and simple tool for presentation contents",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "pack": "build --mac --x64 && build --win --x64 && build --linux --x64",
     "pack:osx": "build --mac --x64",
     "pack:win": "build --win --x64",
-    "pack:linux": "build --linux --x64"
+    "pack:linux": "build --linux --x64",
+    "release": "build --mac --x64 --publish onTagOrDraft && build --win --x64 --publish onTagOrDraft && build --linux --x64 --publish onTagOrDraft"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   "dependencies": {
     "ace-min-noconflict": "^1.1.9",
     "electron-settings": "^3.1.4",
+    "electron-updater": "^2.20.1",
     "font-awesome": "^4.7.0",
     "fs-extra": "^5.0.0",
     "highlight.js": "^9.12.0",

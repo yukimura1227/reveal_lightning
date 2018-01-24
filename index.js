@@ -9,6 +9,7 @@ const fse        = require('fs-extra')
 const parse_path = require('parse-filepath');
 
 const settings = require('electron-settings');
+const { autoUpdater } = require('electron-updater')
 
 const application_menu = require('./lib/js/main_process/application-menu');
 const ipc_main = require('./lib/js/main_process/ipc_main');
@@ -16,6 +17,7 @@ const ipc_main = require('./lib/js/main_process/ipc_main');
 global.mainWindow = null;
 
 app.on('ready', () => {
+  autoUpdater.checkForUpdatesAndNotify();
   setup_application_common_setting();
   setup_server_root(settings.get('app.server_root'));
   setup_export_to();
