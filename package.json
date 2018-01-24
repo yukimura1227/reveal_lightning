@@ -1,6 +1,6 @@
 {
   "name": "reveal_lightning",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "quick and simple tool for presentation contents",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "pack": "build --mac --x64 && build --win --x64 && build --linux --x64",
     "pack:osx": "build --mac --x64",
     "pack:win": "build --win --x64",
-    "pack:linux": "build --linux --x64"
+    "pack:linux": "build --linux --x64",
+    "release": "build --mac --x64 --publish onTagOrDraft && build --win --x64 --publish onTagOrDraft && build --linux --x64 --publish onTagOrDraft"
   },
   "repository": {
     "type": "git",
