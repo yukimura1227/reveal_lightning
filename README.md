@@ -40,6 +40,14 @@ Using github releases function.
 package upload to here ->
 https://github.com/yukimura1227/reveal_lightning/releases
 
+#### How To Release
+see: ![](https://www.electron.build/configuration/publish#recommended-github-releases-workflow)
+
+```
+export GH_TOKEN=XXXXXXXXXXX
+yarn run release
+```
+
 ## Features
 
 ### Start Server locally
@@ -48,7 +56,7 @@ So you can access presentation content on http://localhost:8000/reveal_view.html
 (you can change listen port at system preferences.)
 
 ### Appearance
-![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v1.0.0/readme_resource/area_explain.png)
+![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v1.0.1/readme_resource/area_explain.png)
 
 ### Functions
 #### 1. editor area
