@@ -17,40 +17,48 @@
 
   </head>
   <body class="fill-height">
-    <div class="uk-visible-toggle" style="position: fixed; z-index: 10;">
-      <a uk-icon="icon: cog" style="position: fixed;"></a>
-      <nav class="uk-hidden-hover">
-        <i uk-icon="icon: cog" style="visibility: hidden;"></i>
-        <a id="js-image-paste-btn" class="uk-icon-button" style="width: 100px;" data-uk-tooltip title="direct paste image from clipboard" href="javascript:void(0);">
-          <span uk-icon="icon: image"></span>
-          <span uk-icon="icon: forward"></span>
-        </a>
-        <a id="js-chapter-separate-btn"   class="uk-icon-button" data-uk-tooltip title="add chapter separator" href="javascript:void(0);" uk-icon="icon: chevron-right"></a>
-        <a id="js-section-separate-btn"   class="uk-icon-button" data-uk-tooltip title="add section separator" href="javascript:void(0);" uk-icon="icon: chevron-down"></a>
-        <a id="js-open-browser-btn"       class="uk-icon-button" data-uk-tooltip title="open browser for presentation" href="javascript:void(0);" uk-icon="icon: play-circle"></a>
-        <a id="js-reload-reveal-view-btn" class="uk-icon-button" data-uk-tooltip title="reload reveal preview area" href="javascript:void(0);" uk-icon="icon: refresh"></a>
-        <a id="js-print-btn"              class="uk-icon-button" data-uk-tooltip title="open browser for print mode" href="javascript:void(0);" >
-          <i class="fa fa-print"></i>
-        </a>
-        <a id="js-fragment-btn"                 class="uk-icon-button" data-uk-tooltip title="add fragment sentence" ref="javascript:void(0);" uk-icon="icon: move"></a>
-        <a id="js-fragment-grow-btn"            class="uk-icon-button" data-uk-tooltip title="add fragment(grow) sentence" ref="javascript:void(0);" uk-icon="icon: plus-circle"></a>
-        <a id="js-fragment-shrink-btn"          class="uk-icon-button" data-uk-tooltip title="add fragment(shrink) sentence" ref="javascript:void(0);" uk-icon="icon: minus-circle"></a>
-        <a id="js-fragment-fade-up-btn"         class="uk-icon-button" data-uk-tooltip title="add fragment(fade up) sentence" ref="javascript:void(0);" uk-icon="icon: arrow-up"></a>
-        <a id="js-fragment-fade-down-btn"       class="uk-icon-button" data-uk-tooltip title="add fragment(fade down) sentence" ref="javascript:void(0);" uk-icon="icon: arrow-down"></a>
-        <a id="js-fragment-fade-left-btn"       class="uk-icon-button" data-uk-tooltip title="add fragment(fade left) sentence" ref="javascript:void(0);" uk-icon="icon: arrow-left"></a>
-        <a id="js-fragment-fade-right-btn"      class="uk-icon-button" data-uk-tooltip title="add fragment(fade right) sentence" ref="javascript:void(0);" uk-icon="icon: arrow-right"></a>
-        <a id="js-fragment-current-visible-btn" class="uk-icon-button" data-uk-tooltip title="add fragment(current visible) sentence" ref="javascript:void(0);" >
-          <i class="fa fa-spinner fa-spin"></i>
-        </a>
-        <a id="js-fragment-highlight-current-blue-btn" class="uk-icon-button" data-uk-tooltip title="add fragment(highlight blue only once) sentence" href="javascript:void(0);" style="color: blue;">hl1</a>
-        <a id="js-fragment-highlight-red-btn"          class="uk-icon-button" data-uk-tooltip title="add fragment(highlight red) sentence" href="javascript:void(0);" style="color: red;">hl</a>
+    <div class="uk-container-expand fill-height with-navbar-area">
+      <div class="uk-width-1-1 top0">
+        <ul class="uk-iconnav">
+          <li>
+            <a id="js-image-paste-btn" class="uk-button uk-button-default uk-button-small" style="width: 100px;" data-uk-tooltip title="direct paste image from clipboard" href="javascript:void(0);">
+              <span uk-icon="icon: image"></span>
+              <span uk-icon="icon: forward"></span>
+            </a>
+          </li>
+          <li>
+            <a id="js-chapter-separate-btn"   class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add chapter separator" href="javascript:void(0);" uk-icon="icon: chevron-right"></a>
+          </li>
+          <li><a id="js-section-separate-btn"   class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add section separator" href="javascript:void(0);" uk-icon="icon: chevron-down"></a></li>
+          <li><a id="js-open-browser-btn"       class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="open browser for presentation" href="javascript:void(0);" uk-icon="icon: play-circle"></a></li>
+          <li><a id="js-reload-reveal-view-btn" class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="reload reveal preview area" href="javascript:void(0);" uk-icon="icon: refresh"></a></li>
+          <li>
+            <a id="js-print-btn"              class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="open browser for print mode" href="javascript:void(0);" >
+              <i class="fa fa-print"></i>
+            </a>
+          </li>
+          <li><a id="js-fragment-btn"                 class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add fragment sentence" ref="javascript:void(0);" uk-icon="icon: move"></a></li>
+          <li><a id="js-fragment-grow-btn"            class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add fragment(grow) sentence" ref="javascript:void(0);" uk-icon="icon: plus-circle"></a></li>
+          <li><a id="js-fragment-shrink-btn"          class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add fragment(shrink) sentence" ref="javascript:void(0);" uk-icon="icon: minus-circle"></a></li>
+          <li><a id="js-fragment-fade-up-btn"         class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add fragment(fade up) sentence" ref="javascript:void(0);" uk-icon="icon: arrow-up"></a></li>
+          <li><a id="js-fragment-fade-down-btn"       class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add fragment(fade down) sentence" ref="javascript:void(0);" uk-icon="icon: arrow-down"></a></li>
+          <li><a id="js-fragment-fade-left-btn"       class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add fragment(fade left) sentence" ref="javascript:void(0);" uk-icon="icon: arrow-left"></a></li>
+          <li><a id="js-fragment-fade-right-btn"      class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add fragment(fade right) sentence" ref="javascript:void(0);" uk-icon="icon: arrow-right"></a></li>
+          <li>
+            <a id="js-fragment-current-visible-btn" class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add fragment(current visible) sentence" ref="javascript:void(0);" >
+              <i class="fa fa-spinner fa-spin"></i>
+            </a>
+          </li>
+          <li><a id="js-fragment-highlight-current-blue-btn" class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add fragment(highlight blue only once) sentence" href="javascript:void(0);" style="color: blue;">hl1</a></li>
+          <li><a id="js-fragment-highlight-red-btn"          class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add fragment(highlight red) sentence" href="javascript:void(0);" style="color: red;">hl</a></li>
 
-        <a id="js-style-full-width-btn" class="uk-icon-button" data-uk-tooltip title="add style(width: 100%)" href="javascript:void(0);" >
-          <i class="fa fa-arrows-h"></i>
-        </a>
-      </nav>
-    </div>
-    <div class="uk-container-expand fill-height">
+          <li>
+            <a id="js-style-full-width-btn" class="uk-button uk-button-default uk-button-small" data-uk-tooltip title="add style(width: 100%)" href="javascript:void(0);" >
+              <i class="fa fa-arrows-h"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
       <div class="uk-grid uk-grid-collapse half-height">
         <div class="uk-width-1-2 fill-height">
           <div id="js-markdown-input" class="fill-height uk-width-1-1"></div>
