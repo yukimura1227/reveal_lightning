@@ -53,7 +53,10 @@
     "asar": false,
     "appId": "com.electron.reveal_lightning",
     "mac": {
-      "target": "dmg"
+      "target": [
+        "zip",
+        "dmg"
+      ]
     },
     "win": {
       "target": "nsis"
