@@ -8,13 +8,17 @@ const fs         = require('fs');
 const fse        = require('fs-extra')
 const parse_path = require('parse-filepath');
 
-const settings = require('electron-settings');
+const settings        = require('electron-settings');
 const { autoUpdater } = require('electron-updater')
+const log             = require('electron-log');
 
 const application_menu = require('./lib/js/main_process/application-menu');
 const ipc_main = require('./lib/js/main_process/ipc_main');
 
 global.mainWindow = null;
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+log.info('App starting...');
 
 app.on('ready', () => {
   autoUpdater.checkForUpdatesAndNotify();
@@ -28,6 +32,41 @@ app.on('ready', () => {
   createWindow();
   const menu = Menu.buildFromTemplate(application_menu.menu_template);
   Menu.setApplicationMenu(menu);
+});
+
+function sendStatusToWindow(text) {
+  log.info(text);
+  global.mainWindow.webContents.send('message', text);
+}
+
+autoUpdater.on('checking-for-update', () => {
+  log.info('Checking for update...');
+});
+
+autoUpdater.on('update-available', (info) => {
+  var text = 'Found New Version. Now Downloading...';
+  global.mainWindow.webContents.send('show-progress-dialog', text);
+});
+
+autoUpdater.on('update-not-available', (info) => {
+  log.info('Update not available.');
+});
+
+autoUpdater.on('error', (err) => {
+  sendStatusToWindow('Error in auto-updater. ' + err);
+});
+
+autoUpdater.on('download-progress', (progressObj) => {
+  let log_message = "Download speed: " + progressObj.bytesPerSecond;
+  log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
+  log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
+  log.info(log_message);
+  global.mainWindow.webContents.send('update-progress-dialog', progressObj.percent);
+});
+
+autoUpdater.on('update-downloaded', (info) => {
+  sendStatusToWindow('New Version Downloaded!!');
+  autoUpdater.quitAndInstall();
 });
 
 function setup_export_to() {
