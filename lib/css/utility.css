@@ -7,6 +7,15 @@
 .fill-width {
   width: 100%;
 }
+.with-navbar-area {
+  box-sizing: border-box;
+  padding-top: 30px; /* padding for uk-iconnav area */
+}
+
+.top0 {
+  position: absolute;
+  top: 0px;
+}
 
 textarea {
   overflow: auto;
