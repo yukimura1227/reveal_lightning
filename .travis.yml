@@ -1,0 +1,14 @@
+os: osx
+language: node_js
+cache:
+  yarn: true
+  directories:
+  - node_modules
+node_js:
+  - '8'
+script:
+  - yarn run pack
+env:
+  global:
+    # GH_TOKEN
+    secure: yc3UWG2PXaXf1r66y9EryPESmSTxhpKzBkxEuMejlKNddFV6AJJsAY6OdSOQt8gteF+uO2cIGlgup+DfyQUZL16ZXvxP0JAAEpkfu6MLJZeISMnZKJXz0O+hmM9RcnC951ppiPIL/mFo4Tb89Ns8zlhO+xwrudBh5GHk/gpobE85yPnB8AvcJWZll2S4l42yz7P7CSu5cIljdg4JAZhhcsWXBwaFjJK6rF3OhZ1zq1TEBq6Jl2wIlO18HiVtjaLdufE7Hx6kJ4HCAZa8gKUxgJWBRyUn/k+VQAg391YUNcNPAQSDnJbHmY19QhYkeAvAHoXLeMqdHBCabqaIfBGj5ryn4mErnpe/ZLFmFxrQDKcMiE8Bzh6kRDZnkzGSFlkwNCN7bYWIhdrxux4995TKB620O/LRVnBaMAXUnDiWMEKO1XY28sLmZghndtsDb3rVBlm0Uz5rU8C9ULsO1UkpcA1lpB7s1aBQ1gzMXMkcj1/X7wz53TV4nKmVTnhYNDCZr2MGa8GtNbRRsHhKaJJbzbmFjakcvDlOH3qmktFFNK9fTsgMONoPAnEzJprhEiPjtGPIdHXuoXse7AidX33Imy0v6i49p+XtJk7n81nVClH4Mv2kDDl/s/MWIK1e1LjfiEZATKZwkKEb9sNg/0EllBvj+GRnWaz0C+NBKSn7Mkg=
