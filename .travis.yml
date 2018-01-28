@@ -3,7 +3,9 @@ language: node_js
 cache:
   yarn: true
   directories:
-  - node_modules
+    - node_modules
+    - $HOME/Library/Caches/electron
+    - $HOME/Library/Caches/electron-builder
 node_js:
   - '8'
 script:
