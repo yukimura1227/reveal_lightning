@@ -28,6 +28,7 @@ app.on('ready', () => {
   setup_user_work_dir();
   setup_target_markdown_path();
   setup_server_url();
+  setup_editor_theme();
   ipc_main.start_server(settings.get('server.port'));
   createWindow();
   const menu = Menu.buildFromTemplate(application_menu.menu_template);
@@ -176,6 +177,12 @@ function setup_user_work_dir() {
       work_dir: settings.get('app.server_root') + '/' + default_work_dir_name,
       work_dir_name: default_work_dir_name
     });
+  }
+}
+
+function setup_editor_theme() {
+  if(!settings.has('editor.theme')) {
+    settings.set('editor', { theme: 'twilight' })
   }
 }
 
