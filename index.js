@@ -29,6 +29,7 @@ app.on('ready', () => {
   setup_target_markdown_path();
   setup_server_url();
   setup_editor_theme();
+  setup_editor_keybinding();
   ipc_main.start_server(settings.get('server.port'));
   createWindow();
   const menu = Menu.buildFromTemplate(application_menu.menu_template);
@@ -182,7 +183,13 @@ function setup_user_work_dir() {
 
 function setup_editor_theme() {
   if(!settings.has('editor.theme')) {
-    settings.set('editor', { theme: 'twilight' })
+    settings.set('editor', { theme: 'twilight' });
+  }
+}
+
+function setup_editor_keybinding() {
+  if(!settings.has('keybinding.handler')) {
+    settings.set('keybinding', { handler: 'ace' });
   }
 }
 
