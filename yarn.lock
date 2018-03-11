@@ -10,10 +10,6 @@
   version "8.9.4"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.9.4.tgz#dfd327582a06c114eb6e0441fa3d6fab35edad48"
 
-ace-min-noconflict@^1.1.9:
-  version "1.1.9"
-  resolved "https://registry.yarnpkg.com/ace-min-noconflict/-/ace-min-noconflict-1.1.9.tgz#3449319be2a2902409d4159e640349ff9e9d3fe7"
-
 ajv-keywords@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-2.1.1.tgz#617997fc5f60576894c435f940d819e135b80762"
@@ -142,6 +138,10 @@ brace-expansion@^1.1.7:
   dependencies:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
+
+brace@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/brace/-/brace-0.11.1.tgz#4896fcc9d544eef45f4bb7660db320d3b379fe58"
 
 builder-util-runtime@4.0.4:
   version "4.0.4"
