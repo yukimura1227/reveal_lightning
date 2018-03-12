@@ -1,6 +1,6 @@
 {
   "name": "reveal_lightning",
-  "version": "1.1.2",
+  "version": "1.1.5",
   "description": "quick and simple tool for presentation contents",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/yukimura1227/reveal_lightning#readme",
   "dependencies": {
-    "ace-min-noconflict": "^1.1.9",
+    "brace": "^0.11.1",
     "electron-log": "^2.2.14",
     "electron-settings": "^3.1.4",
     "electron-updater": "^2.20.1",

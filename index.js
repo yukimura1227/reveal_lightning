@@ -28,6 +28,8 @@ app.on('ready', () => {
   setup_user_work_dir();
   setup_target_markdown_path();
   setup_server_url();
+  setup_editor_theme();
+  setup_editor_keybinding();
   ipc_main.start_server(settings.get('server.port'));
   createWindow();
   const menu = Menu.buildFromTemplate(application_menu.menu_template);
@@ -144,18 +146,18 @@ function setup_server_root(server_root) {
       fse.copySync(copy_from, copy_dist);
     }
   }
-  fse.copy(settings.get('app.root_dir') + '/node_modules/ace-min-noconflict/', server_root + '/', {
-    filter: function(path){
-      // allow copy target directory
-      if(path.match(/node_modules\/ace-min-noconflict$/)) {
-        return true
-      }
-      if( path.match(/node_modules\/ace-min-noconflict\/(theme-|ext-|keybinding-).*\.js/)) {
-        return true;
-      }
-      return false;
-    }
-  });
+  // fse.copy(settings.get('app.root_dir') + '/node_modules/ace-min-noconflict/', server_root + '/', {
+  //   filter: function(path){
+  //     // allow copy target directory
+  //     if(path.match(/node_modules\/ace-min-noconflict$/)) {
+  //       return true
+  //     }
+  //     if( path.match(/node_modules\/ace-min-noconflict\/(theme-|ext-|keybinding-).*\.js/)) {
+  //       return true;
+  //     }
+  //     return false;
+  //   }
+  // });
 
   // NOTE: allow directory only cause cannot symlink on windows in default permission
   var link_targets = ['node_modules', 'lib', 'readme_resource'];
@@ -176,6 +178,18 @@ function setup_user_work_dir() {
       work_dir: settings.get('app.server_root') + '/' + default_work_dir_name,
       work_dir_name: default_work_dir_name
     });
+  }
+}
+
+function setup_editor_theme() {
+  if(!settings.has('editor.theme')) {
+    settings.set('editor', { theme: 'twilight' });
+  }
+}
+
+function setup_editor_keybinding() {
+  if(!settings.has('keybinding.handler')) {
+    settings.set('keybinding', { handler: 'ace' });
   }
 }
 
