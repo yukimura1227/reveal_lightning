@@ -142,7 +142,7 @@ function setup_server_root(server_root) {
   for( var i = 0; i < copy_targets.length; i++ ) {
     var copy_from = settings.get('app.root_dir') + '/' + copy_targets[i];
     var copy_dist = server_root + '/' + copy_targets[i];
-    if(!fs.existsSync(copy_dist) ) {
+    if(!fs.existsSync(copy_dist) || copy_targets[i] == 'index.html' ) {
       fse.copySync(copy_from, copy_dist);
     }
   }
