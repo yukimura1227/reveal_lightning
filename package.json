@@ -48,6 +48,8 @@
     "vex-js": "^4.0.1"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
     "electron": "^1.7.10",
     "electron-builder": "^19.53.4",
     "webpack": "^4.1.1",
