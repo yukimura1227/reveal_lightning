@@ -4,6 +4,7 @@
   "description": "quick and simple tool for presentation contents",
   "main": "index.js",
   "scripts": {
+    "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pack": "build --mac --x64 && build --win --x64 && build --linux --x64",
     "pack:osx": "build --mac --x64",
@@ -48,7 +49,9 @@
   },
   "devDependencies": {
     "electron": "^1.7.10",
-    "electron-builder": "^19.53.4"
+    "electron-builder": "^19.53.4",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
   },
   "build": {
     "asar": false,
