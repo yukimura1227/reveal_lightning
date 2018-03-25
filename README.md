@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/yukimura1227/reveal_lightning.svg?branch=master)](https://travis-ci.org/yukimura1227/reveal_lightning)
+
 <!-- TODO:
 ![Logo of the project]()
 -->
