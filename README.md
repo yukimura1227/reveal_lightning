@@ -1,8 +1,7 @@
 [![Build Status](https://travis-ci.org/yukimura1227/reveal_lightning.svg?branch=master)](https://travis-ci.org/yukimura1227/reveal_lightning)
 
-<!-- TODO:
-![Logo of the project]()
--->
+![Logo of the project](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/development/build/icon.ico)
+
 # reveal_lightning
 simple markdown editor and http server for [reveal.js](https://github.com/hakimel/reveal.js) presentation powered by electron.  
 reveal.js is cool presentation tool that good-look presentation contents could create by html and markdown.  
