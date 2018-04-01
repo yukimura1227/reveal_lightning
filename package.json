@@ -2,9 +2,9 @@
   "name": "reveal_lightning",
   "version": "1.1.8",
   "description": "quick and simple tool for presentation contents",
-  "main": "index.js",
+  "main": "main_bundled.js",
   "scripts": {
-    "webpack": "webpack",
+    "webpack": "webpack --config webpack.config.js -p --color",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pack": "build --mac --x64 && build --win --x64 && build --linux --x64",
     "pack:osx": "build --mac --x64",
