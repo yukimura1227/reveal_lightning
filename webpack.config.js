@@ -1,4 +1,5 @@
-const path = require('path');
+const path    = require('path');
+const webpack = require('webpack'); //to access built-in plugins
 
 module.exports = [
   // Electron設定
@@ -51,7 +52,14 @@ module.exports = [
         },
       ],
     },
-    target: 'electron-renderer'
+    target: 'electron-renderer',
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+      })
+    ]
   },
 ];
 
