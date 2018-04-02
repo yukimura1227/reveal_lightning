@@ -26,7 +26,15 @@ module.exports = [
   }
   , {
     entry: {
-      renderer: './lib/js/renderer_process/setup.js',
+      renderer: [
+        './lib/js/renderer_process/setup.js',
+        './lib/js/renderer_process/utility.js',
+        './lib/js/renderer_process/tools.js',
+        './lib/js/renderer_process/context_menu.js',
+        './lib/js/renderer_process/markdown_support.js',
+        './lib/js/renderer_process/ipc_renderer.js',
+        './lib/js/renderer_process/drag_and_drop.js'
+      ]
     },
     output: {
       path: path.join(__dirname, 'lib/js/renderer_process'),
