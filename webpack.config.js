@@ -26,20 +26,35 @@ module.exports = [
     target: 'electron-main',
   }
   , {
+    // entry: {
+    //   renderer: [
+    //     './lib/js/renderer_process/setup.js',
+    //     './lib/js/renderer_process/utility.js',
+    //     './lib/js/renderer_process/tools.js',
+    //     './lib/js/renderer_process/context_menu.js',
+    //     './lib/js/renderer_process/markdown_support.js',
+    //     './lib/js/renderer_process/ipc_renderer.js'
+    //   ]
+    // },
+    // output: {
+    //   path: path.join(__dirname, 'lib/js/renderer_process'),
+    //   filename: 'renderer_bundled.js',
+    //   library: ['RevealLightning'],
+    //   libraryTarget: 'umd'
+    // },
     entry: {
-      renderer: [
-        './lib/js/renderer_process/setup.js',
-        './lib/js/renderer_process/utility.js',
-        './lib/js/renderer_process/tools.js',
-        './lib/js/renderer_process/context_menu.js',
-        './lib/js/renderer_process/markdown_support.js',
-        './lib/js/renderer_process/ipc_renderer.js',
-        './lib/js/renderer_process/drag_and_drop.js'
-      ]
+      setup:            './lib/js/renderer_process/setup.js',
+      utility:          './lib/js/renderer_process/utility.js',
+      tools:            './lib/js/renderer_process/tools.js',
+      context_menu:     './lib/js/renderer_process/context_menu.js',
+      markdown_support: './lib/js/renderer_process/markdown_support.js',
+      ipc_renderer:     './lib/js/renderer_process/ipc_renderer.js'
     },
     output: {
       path: path.join(__dirname, 'lib/js/renderer_process'),
-      filename: 'renderer_bundled.js',
+      filename: "RevealLightning.[name].bundled.js",
+      library: ["RevealLightning", "[name]"],
+      libraryTarget: "umd"
     },
     module: {
       rules: [

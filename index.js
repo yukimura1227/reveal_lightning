@@ -211,6 +211,8 @@ function createWindow() {
   global.mainWindow = new BrowserWindow({width: 960, height: 600});
 
   global.mainWindow.loadURL(url.format({
+    // pathname: path.join('localhost:' + settings.get('server.port'), 'index.html'),
+    // protocol: 'http:',
     pathname: path.join(settings.get('app.server_root'), '/index.html'),
     protocol: 'file:',
     slashes: true
