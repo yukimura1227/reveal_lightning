@@ -85,15 +85,5 @@
     <script src="lib/js/renderer_process/drag_and_drop.js"></script>
 
     <script>vex.defaultOptions.className = 'vex-theme-os';</script>
-    <script>
-      window.addEventListener('load',function() {
-        RevealLightning.markdown_support.setup_markdown();
-        $('#js-reveal-view')[0].contentDocument.location.replace(settings.get('url.presentation'));
-      }, false);
-      window.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-        menu.popup(remote.getCurrentWindow());
-      }, false);
-    </script>
   </body>
 </html>
