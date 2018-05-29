@@ -211,10 +211,12 @@ function createWindow() {
   global.mainWindow = new BrowserWindow({width: 960, height: 600});
 
   global.mainWindow.loadURL(url.format({
-    pathname: path.join(settings.get('app.server_root'), '/index.html'),
-    protocol: 'file:',
+    pathname: path.join('localhost:' + settings.get('server.port'), 'index.html'),
+    protocol: 'http:',
     slashes: true
   }));
+  global.mainWindow.webContents.session.clearCache(function() {});
+
   // global.mainWindow.webContents.openDevTools();
 
   // ウィンドウが閉じられたらアプリも終了
