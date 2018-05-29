@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="node_modules/vex-js/dist/css/vex.css" />
     <link rel="stylesheet" href="node_modules/vex-js/dist/css/vex-theme-os.css" />
 
-    <script src="lib/js/renderer_process/setup.js" ></script>
+    <!--<script src="lib/js/renderer_process/setup.js" ></script>-->
+    <script src="lib/js/renderer_process/renderer_bundled.js" ></script>
 
   </head>
   <body class="fill-height">
@@ -69,15 +70,8 @@
       </div>
       <div class="half-height">
         <iframe id="js-reveal-view" src="reveal_view.html" class="fill-height uk-width-1-1"></iframe>
-        <script>$('#js-reveal-view')[0].contentDocument.location.replace(settings.get('url.presentation'));</script>
       <div>
     </div>
-    <script src="lib/js/renderer_process/markdown_support.js" ></script>
-    <script src="lib/js/renderer_process/utility.js" ></script>
-    <script src="lib/js/renderer_process/tools.js" ></script>
-    <script src="lib/js/renderer_process/context_menu.js" ></script>
-    <script src="lib/js/renderer_process/drag_and_drop.js"></script>
-    <script src="lib/js/renderer_process/ipc_renderer.js" ></script>
     <script src="node_modules/uikit/dist/js/uikit.js"></script>
     <script src="node_modules/uikit/dist/js/uikit-icons.min.js"></script>
     <script src="node_modules/vex-js/dist/js/vex.combined.min.js"></script>
