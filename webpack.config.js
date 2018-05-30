@@ -24,6 +24,9 @@ module.exports = [
       ],
     },
     target: 'electron-main',
+    node: {
+      __dirname: false
+    },
   }
   , {
     entry: {

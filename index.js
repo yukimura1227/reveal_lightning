@@ -110,9 +110,7 @@ function setup_target_markdown_path() {
 }
 
 function setup_application_common_setting() {
-  // NOTE: webpackを使った場合に__dirnameが'/'になる現象に見舞われたのでpath.resorceで代替して回避
-  // var app_root_dir = __dirname;
-  var app_root_dir = path.resolve("");
+  var app_root_dir = __dirname;
   var server_root  = app.getPath('userData') + '/www';
   settings.set('app', {
     root_dir: app_root_dir,
