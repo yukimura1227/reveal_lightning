@@ -18,6 +18,7 @@ before_script:
   - security import ./.travis_files/yukimura1227_apple.p12 -k ~/Library/Keychains/travis.keychain -P $CERT_PASS -A
   - "security set-key-partition-list -S apple-tool:,apple: -s -k travis travis.keychain"
 script:
+  - yarn run webpack
   - yarn run pack
 env:
   global:
