@@ -53,7 +53,8 @@
       // - https://github.com/hakimel/reveal.js#dependencies
       Reveal.initialize({
         math: {
-          mathjax: '/node_modules/mathjax/MathJax.js',
+          // mathjax: '/node_modules/mathjax/MathJax.js', // to heavy including reveal_lightning.app so using CDN
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
           config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
         },
         dependencies: [

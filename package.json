@@ -34,7 +34,6 @@
     "font-awesome": "^4.7.0",
     "highlight.js": "^9.12.0",
     "jquery": "^3.2.1",
-    "mathjax": "^2.7.2",
     "reveal.js": "github:hakimel/reveal.js#master",
     "uikit": "^3.0.0-beta.35",
     "vex-js": "^4.0.1"
@@ -75,6 +74,11 @@
     },
     "directories": {
       "output": "distribution"
-    }
+    },
+    "files": [
+      "**/*",
+      "!docs/",
+      "!test/"
+    ]
   }
 }
