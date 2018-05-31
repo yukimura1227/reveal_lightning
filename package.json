@@ -75,6 +75,11 @@
     },
     "directories": {
       "output": "distribution"
-    }
+    },
+    "files": [
+      "**/*",
+      "!docs/",
+      "!test/"
+    ]
   }
 }
