@@ -1,6 +1,6 @@
 {
   "name": "reveal_lightning",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "quick and simple tool for presentation contents",
   "main": "main_bundled.js",
   "scripts": {
