@@ -57,11 +57,31 @@ So you can access presentation content on http://localhost:8000/reveal_view.html
 (you can change listen port at system preferences.)
 
 ### Appearance
-![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v1.2.1/readme_resource/area_explain.png)
+![](https://raw.githubusercontent.com/yukimura1227/reveal_lightning/v1.2.2/readme_resource/area_explain.png)
 
 ### Functions
 #### 1. editor area
-You can edit markdown here and then the text compile and display preview area automatically.
+You can edit markdown here and then the text compile and display preview area automatically.  
+
+It allows original notation for nested html tags.  
+`__{:xxxx yyyy}__` convert `<div class="xxxx yyyy">`  
+and `__$__` convert `</div>`__
+
+ex)
+You can create 2 column layout by writing below.
+
+```
+__{:uk-flex}__
+__{:uk-width-1-2}__
+left contents
+__$__
+
+
+__{:uk-width-1-2}__
+right contents
+__$__
+__$__
+```
 
 #### 2. preview area
 Here is preview area.
