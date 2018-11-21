@@ -10,3 +10,49 @@
 .reveal code {
   font-family:  'Ricty Diminished',sans-serif, Monaco, monospace;
 }
+
+.reveal.slide > .slides > section > section.present {
+  height: 85%;
+  display: grid !important;
+  grid-template:
+    "header header header header" 50px
+    " lead   lead   lead   lead  " minmax(30px, auto)
+    " main   main   main   main  " 1fr
+    "follow follow follow follow  " minmax(30px, auto)
+    "footer footer footer footer  " 30px
+    / 50px   1fr     1fr   50px;
+}
+/* クラス名とエリアの対応付け */
+.h {
+  grid-area: header;
+  vertical-align: middle;
+  text-align: center;
+}
+.lead {
+  grid-area: lead;
+  vertical-align: middle;
+  text-align: center;
+}
+.main {
+  grid-area: main;
+  text-align: center;
+}
+.l {
+  grid-area: 3 / 2;
+  vertical-align: middle;
+  text-align: center;
+}
+.r {
+  grid-area: 3 / 3;
+  vertical-align: middle;
+  text-align: center;
+}
+.follow {
+  grid-area: follow;
+  vertical-align: middle;
+}
+.f {
+  grid-area: footer;
+  vertical-align: middle;
+  text-align: center;
+}
