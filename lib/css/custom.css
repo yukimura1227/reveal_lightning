@@ -36,10 +36,10 @@
 .reveal.slide > .slides > section {
   height: 90%;
 }
-#js-markdown-section > section.present {
+section.present {
   top: 0px !important;
 }
-section#js-markdown-section.present {
+section[data-markdown] {
   top: 0px !important;
   height: 100%;
   display: grid !important;
