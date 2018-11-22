@@ -2,21 +2,29 @@
   text-transform: none;
 }
 
-.reveal ul li ul li {
+.reveal ul li{
     font-size: 80%;
-}
-
-.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-    grid-area: header;
-    font-weight: bold;
-}
-
-.reveal h5, .reveal h6 {
-    grid-area: lead;
 }
 
 .reveal code {
   font-family:  'Ricty Diminished',sans-serif, Monaco, monospace;
+}
+
+.reveal table {
+  margin-left: 0px;
+  border: 1px solid;
+}
+
+.reveal th, .reveal td {
+  border: 1px solid;
+}
+
+.reveal pre, .reveal pre > code {
+  height: 100%;
+}
+
+.reveal p {
+  text-align: center;
 }
 
 .reveal * {
@@ -44,23 +52,6 @@
     " ....   ....    follow   follow follow follow" minmax(30px, auto)
     " ....  footer  footer  footer footer footer" 30px
     /  5%     4%      4%     36%    36%     5%;
-}
-
-.reveal table {
-  margin-left: 0px;
-  border: 1px solid;
-}
-
-.reveal th, .reveal td {
-  border: 1px solid;
-}
-
-.reveal pre, .reveal pre > code {
-  height: 100%;
-}
-
-.reveal p {
-  text-align: center;
 }
 
 /* クラス名とエリアの対応付け */
@@ -91,3 +82,13 @@
 .f {
   grid-area: footer;
 }
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    grid-area: header;
+    font-weight: bold;
+}
+
+.reveal h5, .reveal h6 {
+    grid-area: lead;
+}
+
