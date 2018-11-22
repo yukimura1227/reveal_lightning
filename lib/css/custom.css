@@ -1,12 +1,92 @@
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   text-transform: none;
 }
-.reveal ul li ul li {
+
+.reveal ul li{
     font-size: 80%;
 }
-.reveal h1, .reveal h2, .reveal h3 {
-    font-weight: bold;
-}
+
 .reveal code {
   font-family:  'Ricty Diminished',sans-serif, Monaco, monospace;
 }
+
+.reveal table {
+  margin-top: 0px;
+  margin-left: 0px;
+  border: 1px solid;
+}
+
+.reveal th, .reveal td {
+  border: 1px solid;
+}
+
+.reveal pre, .reveal pre > code {
+  height: fit-content;
+}
+
+.reveal p {
+  text-align: center;
+}
+
+.reveal * {
+  grid-area: main;
+  text-align: left;
+}
+
+.reveal.slide > .slides > section {
+  height: 90%;
+}
+section.present {
+  top: 0px !important;
+}
+section[data-markdown] {
+  top: 0px !important;
+  height: 100%;
+  display: grid !important;
+  grid-template:
+    " ....  header  header  header header header" auto
+    " ....   ....    lead    lead   lead   lead " auto
+    " ....   ....    ....    main   main   main " 1fr
+    " ....   ....    follow   follow follow follow" auto
+    " ....  footer  footer  footer footer footer" auto
+    /  5%     3%      3%     37%    37%     5%;
+}
+
+/* クラス名とエリアの対応付け */
+.h {
+  grid-area: header;
+}
+
+.lead {
+  grid-area: lead;
+}
+
+.main {
+  grid-area: main;
+}
+
+.l {
+  grid-area: 3 / 4;
+}
+
+.r {
+  grid-area: 3 / 5;
+}
+
+.follow {
+  grid-area: follow;
+}
+
+.f {
+  grid-area: footer;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    grid-area: header;
+    font-weight: bold;
+}
+
+.reveal h5, .reveal h6 {
+    grid-area: lead;
+}
+

@@ -1,16 +1,42 @@
-# SAMPLE TITLE
+## SAMPLE TITLE
+
+##### SAMPLE SUB TITLE
 
 ----------
 
-## SUB TITLE
+## GridLayout
+###### lead sentence
+
+__{:l}__
+- left content
+  * xxx
+__$__
+
+__{:r}__
+- right content
+  * xxx
+__$__
+
+__{:follow}__
+sub footer
+__$__
+
+__{:f}__
+footer
+__$__
+
+----------
+
+### fragment sample(1/3)
 
 - list item1<!-- .element: class="fragment" -->
+  - list item1-1<!-- .element: class="fragment" -->
+  - list item1-2<!-- .element: class="fragment" -->
 - list item2<!-- .element: class="fragment" -->
-- list item3<!-- .element: class="fragment" -->
 
 ---
 
-### SUB SUB TITLE
+### fragment sample(2/3)
 
 - grow fragment<!-- .element: class="fragment grow" -->
 - shrink fragment<!-- .element: class="fragment shrink" -->
@@ -19,9 +45,9 @@
 - fade left<!-- .element: class="fragment fade-left" -->
 - fade right<!-- .element: class="fragment fade-right" -->
 
-----------
+---
 
-## SAMPLES
+### fragment sample(3/3)
 
 - current visible fragment<!-- .element: class="fragment current-visible" -->
 - highlight blue once<!-- .element: class="fragment highlight-current-blue" -->
@@ -29,15 +55,16 @@
 - highlight red<!-- .element: class="fragment highlight-red" -->
 - highlight green<!-- .element: class="fragment highlight-green" -->
 
----
+----------
 
-### Image
+#### Image
 
-![](readme_resource/area_explain.svg)<!-- .element: style="width: 100%" -->
+![](readme_resource/area_explain.svg)
 
 ---
 
 ### Code highlight
+
 ```ruby
 3.times.each do |i|
   puts i
@@ -57,4 +84,10 @@ X\_0 = \left(
 \right)
 $$
 
+---
 
+### table
+
+|left|center|rith|
+|:--|:--:|--:|
+|abc | ijk | xyz |
