@@ -32,16 +32,13 @@
   text-align: left;
 }
 
-.reveal.slide > .slides > section > h1,
-.reveal.slide > .slides > section > h2,
-.reveal.slide > .slides > section > h3,
-.reveal.slide > .slides > section > h4,
-.reveal.slide > .slides > section > h5,
-.reveal.slide > .slides > section > h6 {
-  text-align: center;
+.reveal.slide > .slides > section {
+  height: 90%;
 }
-
-.reveal.slide > .slides > section > section.present {
+#js-markdown-section > section.present {
+  top: 0px !important;
+}
+section#js-markdown-section.present {
   top: 0px !important;
   height: 100%;
   display: grid !important;
