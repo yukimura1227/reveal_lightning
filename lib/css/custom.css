@@ -46,12 +46,12 @@
   height: 100%;
   display: grid !important;
   grid-template:
-    " ....  header  header  header header header" 50px
-    " ....   ....    lead    lead   lead   lead " minmax(30px, auto)
+    " ....  header  header  header header header" auto
+    " ....   ....    lead    lead   lead   lead " auto
     " ....   ....    ....    main   main   main " 1fr
-    " ....   ....    follow   follow follow follow" minmax(30px, auto)
-    " ....  footer  footer  footer footer footer" 30px
-    /  5%     4%      4%     36%    36%     5%;
+    " ....   ....    follow   follow follow follow" auto
+    " ....  footer  footer  footer footer footer" auto
+    /  5%     3%      3%     37%    37%     5%;
 }
 
 /* クラス名とエリアの対応付け */
