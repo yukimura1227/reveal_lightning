@@ -55,7 +55,7 @@
   border: 1px solid;
 }
 
-.reveal pre > code {
+.reveal pre, .reveal pre > code {
   height: 100%;
 }
 
