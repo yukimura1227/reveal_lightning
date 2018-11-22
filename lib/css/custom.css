@@ -20,7 +20,7 @@
 }
 
 .reveal pre, .reveal pre > code {
-  height: 100%;
+  height: fit-content;
 }
 
 .reveal p {
