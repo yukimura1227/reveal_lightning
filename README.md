@@ -64,7 +64,7 @@ So you can access presentation content on http://localhost:8000/reveal_view.html
 You can edit markdown here and then the text compile and display preview area automatically.  
 
 It allows original notation for nested html tags.  
-`__{:xxxx yyyy}__` convert `<div class="xxxx yyyy">`  
+`__{:xxxx yyyy : width: 100%; height: 100%;}__` convert `<div class="xxxx yyyy" style="width: 100%; height: 100%;>`  
 and `__$__` convert `</div>`__
 
 ex)
