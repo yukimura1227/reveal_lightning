@@ -1575,7 +1575,7 @@ electron-updater@^2.20.1:
     semver "^5.5.0"
     source-map-support "^0.5.6"
 
-electron@^1.7.10:
+electron@^1.8.X:
   version "1.8.8"
   resolved "https://registry.yarnpkg.com/electron/-/electron-1.8.8.tgz#a90cddb075291f49576993e6f5c8bb4439301cae"
   integrity sha512-1f9zJehcTTGjrkb06o6ds+gsRq6SYhZJyxOk6zIWjRH8hVy03y/RzUDELzNas71f5vcvXmfGVvyjeEsadDI8tg==
