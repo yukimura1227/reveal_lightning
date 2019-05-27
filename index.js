@@ -75,6 +75,9 @@ function setup_export_to() {
   if(!settings.has('export.to')) {
     settings.set('export', { to: app.getPath('userData') + '/default_exports'});
   }
+  if(!settings.has('export_dir_history.data')) {
+    settings.set('export_dir_history', { data: [settings.get('export.to')] });
+  }
 }
 
 function is_first_setup() {
@@ -178,6 +181,9 @@ function setup_user_work_dir() {
       work_dir: settings.get('app.server_root') + '/' + default_work_dir_name,
       work_dir_name: default_work_dir_name
     });
+  }
+  if(!settings.has('work_dir_history.data')) {
+    settings.set('work_dir_history', { data: [settings.get('env.work_dir')] });
   }
 }
 
