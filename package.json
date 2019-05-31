@@ -1,6 +1,6 @@
 {
   "name": "reveal_lightning",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "quick and simple tool for presentation contents",
   "main": "main_bundled.js",
   "scripts": {
@@ -42,7 +42,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
-    "electron": "^1.7.10",
+    "electron": "^1.8.X",
     "electron-builder": "^19.53.4",
     "electron-log": "^2.2.14",
     "electron-settings": "^3.1.4",
@@ -54,8 +54,8 @@
     "parse-filepath": "^1.0.2",
     "power-assert": "^1.5.0",
     "replace-in-file": "^3.1.0",
-    "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.11"
+    "webpack": "^4.X",
+    "webpack-cli": "^3.X"
   },
   "build": {
     "asar": false,
