@@ -7,7 +7,7 @@ cache:
     - $HOME/Library/Caches/electron
     - $HOME/Library/Caches/electron-builder
 node_js:
-  - '9'
+  - '11'
 before_install:
   - openssl aes-256-cbc -K $encrypted_7029cb32d757_key -iv $encrypted_7029cb32d757_iv -in ./.travis_files/yukimura1227_apple.p12.enc -out ./.travis_files/yukimura1227_apple.p12 -d
 before_script:
