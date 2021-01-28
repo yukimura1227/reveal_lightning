@@ -42,7 +42,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
-    "electron": "^1.8.X",
+    "electron": "^9.4.0",
     "electron-builder": "^19.53.4",
     "electron-log": "^2.2.14",
     "electron-settings": "^3.1.4",
