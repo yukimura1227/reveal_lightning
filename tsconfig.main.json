@@ -1,0 +1,7 @@
+{
+  "extends": ".",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": ["src/*.ts", "src/@types/*"]
+}
