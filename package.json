@@ -1,6 +1,8 @@
 {
   "scripts": {
-     "dev:tsc": "tsc -w -p tsconfig.main.json"
+    "dev:tsc": "tsc -w -p tsconfig.main.json",
+    "dev:webpack": "NODE_ENV=\"development\" webpack",
+    "dev:electron": "NODE_ENV=\"development\" electron ."
   },
   "devDependencies": {
     "@types/node": "^17.0.15",
